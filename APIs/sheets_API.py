@@ -13,3 +13,10 @@ service = build('sheets', 'v4', credentials=credentials)
 sheet = service.spreadsheets()
 
 
+# read Google Sheets data through API
+def getSheetData():
+    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range="p1!a1:c5").execute()
+    values = result.get('values', [])
+    return values
+
+
