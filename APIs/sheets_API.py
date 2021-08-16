@@ -20,3 +20,19 @@ def getSheetData():
     return values
 
 
+# write Google Sheets data through API
+def setSheetData(data):
+    request = sheet.values().update(spreadsheetId=SPREADSHEET_ID,
+                                range="p1!a1", valueInputOption="USER_ENTERED",
+                                body={"values":data}).execute()
+
+
+values = getSheetData()
+
+data = [["new Data"]]
+
+setSheetData(data)
+
+
+print(values)
+
