@@ -30,6 +30,16 @@ def resize(dimentions):
     dimentions = str(dimentions).split("x")
     WINDOW_W, WINDOW_H = int(dimentions[0]), int(dimentions[1])
     root.geometry(f"{WINDOW_W}x{WINDOW_H}")
+
+
+def updateLayout(dimentions, build_frame, user, identify):
+    global USERNAME, IDENTIFIER
+    USERNAME = user
+    IDENTIFIER = identify
+    resize(dimentions)
+    build_frame()
+    
+
 def main():
     createHomePage()
 
