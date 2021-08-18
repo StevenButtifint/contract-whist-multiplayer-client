@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import Label, Button
 from PIL import ImageTk, Image
 
+from APIs.sheets_API import getSheetData, setSheetData
+
 APP_TITLE   = "Contract Whist Client - 1.0"
 APP_ICON    = "res/images/icon.ico"
 
@@ -15,6 +17,8 @@ COL_WIDGET  = "DarkSeaGreen2"
 
 WINDOW_SIZES = ["800x600", "900x700", "1200x700", "1600x1100", "2100x1300"]
 COL_SCHEMES = ["Default", "test"]
+WINDOW_SIZES    = ["800x600", "900x700", "1200x700", "1600x1100", "2100x1300"]
+COL_SCHEMES     = ["Default", "test"]
 
 
 USERNAME    = ""
@@ -23,6 +27,8 @@ COL_SCHEME  = "default"
 
 WINDOW_W = 900
 WINDOW_H = 600
+WINDOW_W    = 900
+WINDOW_H    = 600
 
 
 def resize(dimentions):
@@ -101,6 +107,13 @@ def createHomePage():
     colour_option_menu.config(width=21, bg=COL_WIDGET, fg=COL_TEXT)
     colour_option_menu["menu"].config(bg=COL_WIDGET, fg=COL_TEXT)
     colour_option_menu.place(x=WINDOW_W//2, y=WINDOW_H*0.4+70, anchor="center")
+
+    resize_string = tk.StringVar(home_frame)
+    resize_string.set("Resolution: " + str(WINDOW_W) + "x" + str(WINDOW_H))
+    resize_option_menu = tk.OptionMenu(home_frame, resize_string, *WINDOW_SIZES, command= lambda x=None: updateLayout(resize_string.get(), createHomePage, username_entry.get(), identifier_entry.get()))
+    resize_option_menu.config(width=21, bg=COL_WIDGET, fg=COL_TEXT)
+    resize_option_menu["menu"].config(bg=COL_WIDGET, fg=COL_TEXT)
+    resize_option_menu.place(x=WINDOW_W//2, y=WINDOW_H*0.4+110, anchor="center")
 
 def main():
     createHomePage()
