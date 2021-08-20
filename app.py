@@ -65,6 +65,40 @@ def setColourScheme(frame, colour_string):
     label1t = Label(image=imgt)
     label1t.image = imgt
     label1t.place(x=(WINDOW_W//4)*1, y=WINDOW_H//2, anchor="center")
+def orderHands(allHands):
+    
+    for index, hand in enumerate(allHands):
+        
+        h, s, d, c = [], [], [], []
+        
+        for card in hand:
+            if "h" in card:
+                h.append(card)
+            elif "s" in card:
+                s.append(card)
+            elif "d" in card:
+                d.append(card)
+            elif "c" in card:
+                c.append(card)
+
+        h = sorted(h)
+        s = sorted(s)
+        d = sorted(d)
+        c = sorted(c)
+
+        ordered_hand = []
+        
+        if TRUMP_SUIT == "h":
+            ordered_hand = s + d + c + h
+        if TRUMP_SUIT == "s":
+            ordered_hand = d + c + h + s
+        if TRUMP_SUIT == "d":
+            ordered_hand = c + h + s + d
+        if TRUMP_SUIT == "c":
+            ordered_hand = h + s + d + c
+        
+        for card in range(len(hand)):
+            allHands[index][card] = ordered_hand[card]
 def createHomePage():
     global home_frame
     try:
