@@ -65,6 +65,13 @@ def setColourScheme(frame, colour_string):
     label1t = Label(image=imgt)
     label1t.image = imgt
     label1t.place(x=(WINDOW_W//4)*1, y=WINDOW_H//2, anchor="center")
+def peek(left_frame, top_frame, right_frame, deck_order):
+    global PEEK
+    left_frame.destroy()
+    top_frame.destroy()
+    right_frame.destroy()
+    PEEK = not PEEK
+    placeOpponentCards(deck_order)
 def orderHands(allHands):
     
     for index, hand in enumerate(allHands):
