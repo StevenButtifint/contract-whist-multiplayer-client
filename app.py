@@ -65,6 +65,9 @@ def setColourScheme(frame, colour_string):
     label1t = Label(image=imgt)
     label1t.image = imgt
     label1t.place(x=(WINDOW_W//4)*1, y=WINDOW_H//2, anchor="center")
+def setUsername(userName):
+    global USERNAME
+    USERNAME = userName
 def peek(left_frame, top_frame, right_frame, deck_order):
     global PEEK
     left_frame.destroy()
