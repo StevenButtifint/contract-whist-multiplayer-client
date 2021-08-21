@@ -71,6 +71,9 @@ def setUsername(userName):
 def setBotCount(botCount):
     global BOTS
     BOTS = int(botCount)
+def setRoundSize(roundSize):
+    global ROUND_SIZE
+    ROUND_SIZE = int(roundSize)
 def peek(left_frame, top_frame, right_frame, deck_order):
     global PEEK
     left_frame.destroy()
