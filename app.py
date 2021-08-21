@@ -68,6 +68,9 @@ def setColourScheme(frame, colour_string):
 def setUsername(userName):
     global USERNAME
     USERNAME = userName
+def setBotCount(botCount):
+    global BOTS
+    BOTS = int(botCount)
 def peek(left_frame, top_frame, right_frame, deck_order):
     global PEEK
     left_frame.destroy()
