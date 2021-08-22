@@ -27,6 +27,8 @@ CARDS_DECK      = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s",
                    "vc", "vd", "vh", "vs", "wjc", "wjd", "wjh", "wjs",
                    "xqc", "xqd", "xqh", "xqs", "ykc", "ykd", "ykh", "yks",
                    "zac", "zad", "zah", "zas"]
+SUITS       = ["h", "s", "d", "c"]
+SUIT_NAMES  = ["Hearts", "Spades", "Dimonds", "Clubs"]
 
 USERNAME    = ""
 IDENTIFIER  = ""
