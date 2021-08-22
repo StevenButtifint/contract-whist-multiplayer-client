@@ -81,6 +81,8 @@ def peek(left_frame, top_frame, right_frame, deck_order):
     right_frame.destroy()
     PEEK = not PEEK
     placeOpponentCards(deck_order)
+def shuffle(array):
+    random.shuffle(array)
 def orderHands(allHands):
     
     for index, hand in enumerate(allHands):
