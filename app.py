@@ -279,6 +279,8 @@ class offlineGame:
 
         self._setupRound()
         self.startGame()
+    def _shuffleDeck(self):
+        random.shuffle(self.cards_deck)
 def createHomePage():
     global home_frame
     try:
