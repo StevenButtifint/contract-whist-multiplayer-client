@@ -126,6 +126,100 @@ def orderHands(allHands):
         
         for card in range(len(hand)):
             allHands[index][card] = ordered_hand[card]
+def offlinePlay():
+    print("offline with bots")
+    global bot_left_frame, bot_top_frame, bot_right_frame, ALL_HANDS, ROUND_NUMBER, OFFLINE_GAME, player_select_frame, ROUND_SIZE
+    
+    #frame for all to go in instead of root to destroy if back to main menu or game over
+    offline_frame = tk.Frame(root, bg=COL_PRIME).place(relwidth=1, relheight=1, relx=0, rely=0)
+
+    #Player_hand_frame = tk.Frame(root, bg="red").place(relwidth=0.9, relheight=0.3, relx=0.5, rely=0.85, anchor="center")
+
+    #player_select_frame = tk.Frame(root, bg="purple")
+    #player_select_frame.place(relwidth=0.95, relheight=0.06, relx=0.5, rely=0.92, anchor="n")
+
+
+    options_frame = tk.Frame(root, bg="green")
+    options_frame.place(relwidth=1, relheight=0.07, relx=0.5, rely=0, anchor="n")
+
+    
+   # bot_left_frame = tk.Frame(root, bg="red")
+   # bot_left_frame.place(relwidth=0.15, relheight=0.6, relx=0.1, rely=0.38, anchor="center")
+    
+  #  bot_top_frame = tk.Frame(root, bg="blue")
+  #  bot_top_frame.place(relwidth=0.48, relheight=0.18, relx=0.5, rely=0.18, anchor="center")
+    
+  #  bot_right_frame = tk.Frame(root, bg="yellow")
+  #  bot_right_frame.place(relwidth=0.15, relheight=0.6, relx=0.9, rely=0.38, anchor="center")
+    
+    #center_frame = tk.Frame(root, bg="orange")
+    #center_frame.place(relwidth=0.5, relheight=0.35, relx=0.5, rely=0.47, anchor="center")
+
+    OFFLINE_GAME = True
+    #threading.Thread(target=checkPlayersGo).start()
+    #threading.Thread(target=setCurrentPlayer).start()
+    
+    #randonly shuffle deck and pick out cards for player and each bot
+
+
+
+    #ALL_HANDS = []
+    #shuffle(CARDS_DECK)
+
+    #for x in range(BOTS+1):
+    #    ALL_HANDS.append(CARDS_DECK[x*ROUND_SIZE:x*ROUND_SIZE+ROUND_SIZE])
+
+    #orderHands(ALL_HANDS)
+
+    
+
+    deck_order = [1, 1, 2]  #left, top, right
+    
+    if BOTS == 3:
+        deck_order[1] = 2
+        deck_order[2] = 3
+        
+    #placeOpponentCards(deck_order)
+
+    USERNAME = "temp user"
+    player_names = [USERNAME, "bot1", "bot2", "bot3"]
+    print("here class start")##################################################################################################################
+
+
+    offlineGame(offline_frame, player_names, COL_SCHEME, ROUND_SIZE, deck_order, CARDS_DECK)
+
+    #ChangeText(offline_frame, WINDOW_W, WINDOW_H, BOTS, ALL_HANDS, ROUND_SIZE, player_names, bot_left_frame, bot_top_frame, bot_right_frame, deck_order)
+
+
+    #show player cards
+  #  for x in range(ROUND_SIZE):
+  #      image = Image.open("res/images/card_packs/" + COL_SCHEME + "/" + ALL_HANDS[0][x] + ".png")
+  #      image = image.resize((500//(CARDS_SCALE-3), 726//(CARDS_SCALE-3)))
+   #     image = ImageTk.PhotoImage(image)
+   #     image_label = Label(Player_hand_frame, image=image)
+   #     image_label.image = image
+   #     image_label.place(x=(int(WINDOW_W*0.09)*(x+1)), y=int(WINDOW_H*0.8), anchor="center")
+        
+        #test = Button(player_select_frame, text="Select", width=8, command= lambda x=x: testingTwo(str(x)))
+        #test.place(x=int(WINDOW_W*0.09)*(x+1), y=WINDOW_H*0.95, anchor="center")
+
+
+  #  #trump suit center info
+  #  trump_suit_label = Label(center_frame, text="Trump: " + SUIT_NAMES[SUITS.index(TRUMP_SUIT)], bg=COL_PRIME, fg=COL_TEXT)
+  #  trump_suit_label.place(relx=0.1, rely=0.05, anchor="center")
+  #  image = Image.open("res/images/icons/" + TRUMP_SUIT + "_icon.png")
+  #  image = image.resize((400//(CARDS_SCALE), 400//(CARDS_SCALE)))
+  #  image = ImageTk.PhotoImage(image)
+  #  image_label = Label(center_frame, image=image)
+  #  image_label.image = image
+  #  image_label.place(relx=0.1, rely=0.22, anchor="center")
+
+
+    peek_button = Button(options_frame, text="Peek", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: peek(bot_left_frame, bot_top_frame, bot_right_frame, deck_order))
+    peek_button.place(relx=0.2, rely=0.5, anchor="center")
+    
+    home_button = Button(options_frame, text="Exit Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
+    home_button.place(relx=0.05, rely=0.5, anchor="center")
 def createHomePage():
     global home_frame
     try:
