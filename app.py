@@ -291,9 +291,15 @@ class offlineGame:
         #   add prediction input for user and bots
         #   exit game destroys all, user selects and some hand frames come through
 
-      
-        #self.populateCenter()
         
+    def _setHandOrder(self):
+        self.deck_order = [1, 1, 2]  #left, top, right
+    
+        if BOTS == 3:
+            self.deck_order[1] = 2
+            self.deck_order[2] = 3
+
+
 
         #place all opponent cards
         #self._placeAllHands()
