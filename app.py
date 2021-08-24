@@ -221,54 +221,75 @@ def offlinePlay():
     home_button = Button(options_frame, text="Exit Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
     home_button.place(relx=0.05, rely=0.5, anchor="center")
 class offlineGame:
-    def __init__(self, parent_frame, names, colour_scheme, round_size, deck_order, cards_deck):
+    def __init__(self, parent_frame, names, colour_scheme, round_size, cards_deck):# +difficulty/bot playstyles, bot amount, colour scheme all in game config class object?
         
         self.parent = parent_frame
         self.names = names
-        self.players = len(names)
-        self.hands = [[]] * self.players
-
         self.colour_scheme = colour_scheme
-        self.round_size = round_size
-        self.round_size_two = round_size
+        self.round_size = round_size # start_round_size
+        self.cards_deck = cards_deck
+        
+        
+        self.players = len(names)
+        
+        self.hands = [[]] * self.players#store all lists of players cards
+
+
+        self.round_size_two = round_size#to organise
+        self.total_rounds = round_size
 
         
-        self.total_rounds = round_size
-        self.deck_order = deck_order
-        self.cards_deck = cards_deck
+        self.deck_order = self._setHandOrder() #deck_order
+
+        
 
         self.suits = ["h", "s", "d", "c"]
         self.suit_names = ["Hearts", "Spades", "Dimonds", "Clubs"]
         self.trump_suit = ""
         self.round_number = 0
 
-        self.left_frame = self._makeFrame(self.parent, 0.15, 0.6, 0.1, 0.38, "pink", "center")
-        self.top_frame = self._makeFrame(self.parent, 0.48, 0.18, 0.5, 0.18, "blue", "center")
-        self.right_frame = self._makeFrame(self.parent, 0.15, 0.6, 0.9, 0.38, "yellow", "center")
-        self.center_frame = self._makeFrame(self.parent, 0.5, 0.35, 0.5, 0.47, "orange", "center")
-        self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.3, 0.5, 0.85, "red", "center")
 
-        #self.peek = False
-        self.current_player = 2##
+        self.options_frame = self._makeFrame(self.parent, 1, 0.05, 0.5, 0, "green", "n")
+        self.left_frame = self._makeFrame(self.parent, 0.15, 0.6, 0.1, 0.42, "pink", "center")
+        self.top_frame = self._makeFrame(self.parent, 0.48, 0.16, 0.5, 0.21, "blue", "center")
+        self.right_frame = self._makeFrame(self.parent, 0.15, 0.6, 0.9, 0.42, "yellow", "center")
+        self.center_frame = self._makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, "orange", "center")
+        self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.25, 0.5, 0.85, "red", "center")
+
+
+        self.current_player = 2#random.randint(0, self.players-1)
         self.center_cards = 0
         self.results = []
 
+        self.predictions = [0]*self.players
         self.subRoundsWon = [0]*self.players
 
         self.center_state = []#stores player and their card in center
 
         self.game_active = True
-
-        self.frame = self._makeFrame(self.parent, 0.2, 0.2, 0.8, 0.2, "green", "center")#
-
+        self.peek = False
         
-        self.game = tk.Label(self.frame)
-        self.game['text'] = 'Start Text'
+        self.game = tk.Label(self.parent)
         self.game.pack()
 
 
-        #self.showPlayerCards()
-        self.Player_turn_label = self._makeLabel(self.parent, "", 0.5, 0.68, "center")
+        self.Player_turn_label = self._makeLabel(self.parent, "", 0.5, 0.695, "center")
+
+        peek_button = Button(self.parent, text="Peek", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: self._peekOpponents())
+        peek_button.place(relx=0.2, rely=0.025, anchor="center")
+    
+        home_button = Button(self.parent, text="Exit Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
+        home_button.place(relx=0.05, rely=0.025, anchor="center")
+
+        self._placeNames()
+        self._placePredictionsWon()
+        self._setupRound()
+        self.startGame()
+
+        #TODO -
+        #   self.subRoundsWon is being updated after round end so final win carry over sometimes?
+        #   add prediction input for user and bots
+        #   exit game destroys all, user selects and some hand frames come through
 
       
         #self.populateCenter()
