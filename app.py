@@ -300,6 +300,50 @@ class offlineGame:
             self.deck_order[2] = 3
 
 
+    def _placeNames(self):#place names and predicted/achieved
+        if self.players == 2:
+            name_top_label = self._makeLabel(self.parent, self.names[1], 0.5, 0.07, "center")
+        elif self.players == 3:
+            name_left_label = self._makeLabel(self.parent, self.names[1], 0.1, 0.07, "center")
+            name_right_label = self._makeLabel(self.parent, self.names[2], 0.9, 0.07, "center")
+        elif self.players == 4:
+            name_left_label = self._makeLabel(self.parent, self.names[1], 0.1, 0.07, "center")
+            name_top_label = self._makeLabel(self.parent, self.names[2], 0.5, 0.07, "center")
+            name_right_label = self._makeLabel(self.parent, self.names[3], 0.9, 0.07, "center")
+
+
+    def _placePredictionsWon(self):
+        try:#improve so dont distroy and remake, change ["text"] param like self.Player_turn_label
+            self.user_score_label = self.user_score_label.destroy()
+            self.score_top_label = self.score_top_label.destroy()
+        except:
+            try:
+                self.score_left_label = self.score_left_label.destroy()
+                self.score_right_label = self.score_right_label.destroy()
+            except:
+                try:
+                    self.score_left_label = self.score_left_label.destroy()
+                    self.score_top_label = self.score_top_label.destroy()
+                    self.score_right_label = self.score_right_label.destroy()
+                except:
+                    print("passed preds")
+
+
+        self.user_score_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[0]) + ", Won: " + str(self.subRoundsWon[0]), 0.3, 0.695, "center")
+
+        
+        if self.players == 2:
+            self.score_top_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.5, 0.1, "center")
+
+        elif self.players == 3:
+            self.score_left_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.1, 0.1, "center")
+            self.score_right_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[2]) + ", Won: " + str(self.subRoundsWon[2]), 0.9, 0.1, "center")
+
+        elif self.players == 4:
+            self.score_left_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.1, 0.1, "center")
+            self.score_top_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[2]) + ", Won: " + str(self.subRoundsWon[2]), 0.5, 0.1, "center")
+            self.score_right_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[3]) + ", Won: " + str(self.subRoundsWon[3]), 0.9, 0.1, "center")
+
 
         #place all opponent cards
         #self._placeAllHands()
