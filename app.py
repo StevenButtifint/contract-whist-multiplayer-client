@@ -1,5 +1,9 @@
 import tkinter as tk
-from tkinter import Label, Button
+import random
+import threading
+import time
+
+from tkinter import Label, Button, PhotoImage, StringVar
 from PIL import ImageTk, Image
 
 from APIs.sheets_API import getSheetData, setSheetData
@@ -11,14 +15,11 @@ COL_PRIME   = "PaleGreen1"
 COL_SECND   = "PaleGreen2"
 COL_THIRD   = "PaleGreen4"
 COL_TEXT    = "DarkGreen"
-
 COL_WIDGET  = "DarkSeaGreen2"
 
 
-WINDOW_SIZES = ["800x600", "900x700", "1200x700", "1600x1100", "2100x1300"]
-COL_SCHEMES = ["Default", "test"]
 WINDOW_SIZES    = ["800x600", "900x700", "1200x700", "1600x1100", "2100x1300"]
-COL_SCHEMES     = ["Default", "test"]
+CARDS_SCALES    = [9, 8, 7, 4, 2]
 
 CARDS_DECK      = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s",
                    "4c", "4d", "4h", "4s", "5c", "5d", "5h", "5s",
@@ -27,17 +28,10 @@ CARDS_DECK      = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s",
                    "vc", "vd", "vh", "vs", "wjc", "wjd", "wjh", "wjs",
                    "xqc", "xqd", "xqh", "xqs", "ykc", "ykd", "ykh", "yks",
                    "zac", "zad", "zah", "zas"]
-SUITS       = ["h", "s", "d", "c"]
-SUIT_NAMES  = ["Hearts", "Spades", "Dimonds", "Clubs"]
 
-USERNAME    = ""
-IDENTIFIER  = ""
-COL_SCHEME  = "default"
-
-WINDOW_W = 900
-WINDOW_H = 600
 WINDOW_W    = 900
 WINDOW_H    = 600
+CARDS_SCALE = 9
 
 
 def resize(dimentions):
