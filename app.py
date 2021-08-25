@@ -65,16 +65,8 @@ def showColourScheme(frame, colour_string):
     label1t = Label(image=imgt)
     label1t.image = imgt
     label1t.place(x=(WINDOW_W//4)*1, y=WINDOW_H//2, anchor="center")
-def setUsername(userName):
-    global USERNAME
-    USERNAME = userName
-def setBotCount(botCount):
-    global BOTS
-    BOTS = int(botCount)
-def setRoundSize(roundSize):
-    global ROUND_SIZE
-    ROUND_SIZE = int(roundSize)
 
+    colour_string.set("Colour Scheme: " + str(colour_scheme))
 
 
 
