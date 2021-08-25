@@ -49,20 +49,17 @@ def updateLayout(dimentions, build_frame, user, identify):
     build_frame()
     
 
-def setColourScheme(frame, colour_string):
-    global COL_SCHEME
-    COL_SCHEME = colour_string.get()
-    print(COL_SCHEME)
-    colour_string.set("Colour Scheme: " + str(COL_SCHEME))
+def showColourScheme(frame, colour_string):
+    colour_scheme = colour_string.get()
     
-    image = Image.open("res/images/card_packs/" + COL_SCHEME + "/as.png")
+    image = Image.open("res/images/card_packs/" + colour_scheme + "/zas.png")
     image = image.resize((500//3, 726//3))
     img = ImageTk.PhotoImage(image)
     label1 = Label(frame, image=img)
     label1.image = img
     label1.place(x=(WINDOW_W//4)*3, y=WINDOW_H//2, anchor="center")
 
-    imaget = Image.open("res/images/card_packs/" + COL_SCHEME + "/bk.png")
+    imaget = Image.open("res/images/card_packs/" + colour_scheme + "/bk.png")
     imaget = imaget.resize((500//3, 726//3))
     imgt = ImageTk.PhotoImage(imaget)
     label1t = Label(image=imgt)
