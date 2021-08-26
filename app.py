@@ -52,22 +52,20 @@ def updateLayout(dimentions, build_frame):
 
 def showColourScheme(frame, colour_string):
     colour_scheme = colour_string.get()
-    
-    image = Image.open("res/images/card_packs/" + colour_scheme + "/zas.png")
+    placeImage(frame, "res/images/card_packs/" + colour_scheme + "/zas.png", 0.8, 0.5)
+    placeImage(frame, "res/images/card_packs/" + colour_scheme + "/bk.png", 0.2, 0.5)
+    colour_string.set("Colour Scheme: " + str(colour_scheme))
+
+
+def placeImage(frame, directory, relx, rely):
+    image = Image.open(directory)   
     image = image.resize((500//3, 726//3))
     img = ImageTk.PhotoImage(image)
-    label1 = Label(frame, image=img)
-    label1.image = img
-    label1.place(x=(WINDOW_W//4)*3, y=WINDOW_H//2, anchor="center")
+    label = Label(frame, image=img)
+    label.image = img
+    label.place(relx=relx, rely=rely, anchor="center")      
 
-    imaget = Image.open("res/images/card_packs/" + colour_scheme + "/bk.png")
-    imaget = imaget.resize((500//3, 726//3))
-    imgt = ImageTk.PhotoImage(imaget)
-    label1t = Label(image=imgt)
-    label1t.image = imgt
-    label1t.place(x=(WINDOW_W//4)*1, y=WINDOW_H//2, anchor="center")
 
-    colour_string.set("Colour Scheme: " + str(colour_scheme))
 
 
 
