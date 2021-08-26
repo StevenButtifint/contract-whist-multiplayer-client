@@ -35,16 +35,17 @@ CARDS_SCALE = 9
 
 
 def resize(dimentions):
-    global WINDOW_W, WINDOW_H
+    global WINDOW_W, WINDOW_H, CARDS_SCALE
+    CARDS_SCALE = CARDS_SCALES[WINDOW_SIZES.index(dimentions)]
     dimentions = str(dimentions).split("x")
     WINDOW_W, WINDOW_H = int(dimentions[0]), int(dimentions[1])
     root.geometry(f"{WINDOW_W}x{WINDOW_H}")
 
 
-def updateLayout(dimentions, build_frame, user, identify):
-    global USERNAME, IDENTIFIER
-    USERNAME = user
-    IDENTIFIER = identify
+def updateLayout(dimentions, build_frame):
+    #global USERNAME, IDENTIFIER
+    #USERNAME = user
+    #IDENTIFIER = identify
     resize(dimentions)
     build_frame()
     
