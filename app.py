@@ -71,8 +71,44 @@ def showColourScheme(frame, colour_string):
 
 
 
+def offlineConfigFrame(username, col_scheme):
+    global config_frame
+    try:
+        config_frame.destroy()
+    except:
+        pass
 
+    #offline game setup
+    BOT_COUNT       = ["1", "2", "3"]
+    BOTS    = 3
+    start_round_size = [1,2,3,4,5,6,7,8,9,10]
+    round_size = 10
     
+    config_frame = tk.Frame(root, bg=COL_PRIME).place(relwidth=1, relheight=1, relx=0, rely=0)
+
+    bots_label = Label(home_frame, text="Bot Players:", bg=COL_PRIME, fg=COL_TEXT)
+    bots_label.place(x=WINDOW_W//2-40, y=WINDOW_H*0.4, anchor="center")
+    bots_string = tk.StringVar(config_frame)
+    bots_string.set(BOTS)
+    bots_option_menu = tk.OptionMenu(home_frame, bots_string, *BOT_COUNT)#, command= lambda x=None: setBotCount(bots_string.get()))
+    bots_option_menu.config(width=6, bg=COL_WIDGET, fg=COL_TEXT)
+    bots_option_menu["menu"].config(bg=COL_WIDGET, fg=COL_TEXT)
+    bots_option_menu.place(x=WINDOW_W//2+40, y=WINDOW_H*0.4, anchor="center")
+
+    card_count_label = Label(home_frame, text="Starting amount of cards:", bg=COL_PRIME, fg=COL_TEXT)
+    card_count_label.place(x=WINDOW_W//2-80, y=WINDOW_H*0.4+40, anchor="center")
+    card_count_string = tk.StringVar(config_frame)
+    card_count_string.set(round_size)
+    card_count_option_menu = tk.OptionMenu(home_frame, card_count_string, *start_round_size)#, command= lambda x=None: setRoundSize(card_count_string.get()))
+    card_count_option_menu.config(width=6, bg=COL_WIDGET, fg=COL_TEXT)
+    card_count_option_menu["menu"].config(bg=COL_WIDGET, fg=COL_TEXT)
+    card_count_option_menu.place(x=WINDOW_W//2+40, y=WINDOW_H*0.4+40, anchor="center")
+
+    start_button = Button(home_frame, text="Start", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: offlinePlay(username, int(bots_string.get()), int(card_count_string.get()), col_scheme))
+    start_button.place(x=WINDOW_W//2, y=WINDOW_H*0.4+80, anchor="center")
+    
+    home_button = Button(home_frame, text="Back", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
+    home_button.place(x=40, y=WINDOW_H-20, anchor="center")
 
 
 
