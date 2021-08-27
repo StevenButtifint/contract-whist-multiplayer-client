@@ -69,7 +69,7 @@ def placeImage(frame, directory, relx, rely):
 
 
 
-def offlineConfigFrame(username, col_scheme):
+def offlineConfigFrame(username, col_scheme, window_size):
     global config_frame
     try:
         config_frame.destroy()
@@ -84,29 +84,33 @@ def offlineConfigFrame(username, col_scheme):
     
     config_frame = tk.Frame(root, bg=COL_PRIME).place(relwidth=1, relheight=1, relx=0, rely=0)
 
-    bots_label = Label(home_frame, text="Bot Players:", bg=COL_PRIME, fg=COL_TEXT)
-    bots_label.place(x=WINDOW_W//2-40, y=WINDOW_H*0.4, anchor="center")
+    bots_label = Label(home_frame, text="Number of Bots:", bg=COL_PRIME, fg=COL_TEXT)
+    bots_label.place(relx=0.5, rely=0.42, anchor="e")#x=WINDOW_W//2-40, y=WINDOW_H*0.4, anchor="center")
     bots_string = tk.StringVar(config_frame)
     bots_string.set(BOTS)
+    #######change to horizontal slider?? as seperate function
     bots_option_menu = tk.OptionMenu(home_frame, bots_string, *BOT_COUNT)#, command= lambda x=None: setBotCount(bots_string.get()))
     bots_option_menu.config(width=6, bg=COL_WIDGET, fg=COL_TEXT)
     bots_option_menu["menu"].config(bg=COL_WIDGET, fg=COL_TEXT)
-    bots_option_menu.place(x=WINDOW_W//2+40, y=WINDOW_H*0.4, anchor="center")
+    bots_option_menu.place(relx=0.5, rely=0.42, anchor="w")#x=WINDOW_W//2+40, y=WINDOW_H*0.4, anchor="center")
+
+    #slider = tk.Scale(home_frame, from_=0, to=10, orient='horizontal')
+    #slider.place(relx=0.2, rely=0.2)
 
     card_count_label = Label(home_frame, text="Starting amount of cards:", bg=COL_PRIME, fg=COL_TEXT)
-    card_count_label.place(x=WINDOW_W//2-80, y=WINDOW_H*0.4+40, anchor="center")
+    card_count_label.place(relx=0.5, rely=0.48, anchor="e")
     card_count_string = tk.StringVar(config_frame)
     card_count_string.set(round_size)
     card_count_option_menu = tk.OptionMenu(home_frame, card_count_string, *start_round_size)#, command= lambda x=None: setRoundSize(card_count_string.get()))
     card_count_option_menu.config(width=6, bg=COL_WIDGET, fg=COL_TEXT)
     card_count_option_menu["menu"].config(bg=COL_WIDGET, fg=COL_TEXT)
-    card_count_option_menu.place(x=WINDOW_W//2+40, y=WINDOW_H*0.4+40, anchor="center")
+    card_count_option_menu.place(relx=0.5, rely=0.48, anchor="w")
 
     start_button = Button(home_frame, text="Start", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: offlinePlay(username, int(bots_string.get()), int(card_count_string.get()), col_scheme))
-    start_button.place(x=WINDOW_W//2, y=WINDOW_H*0.4+80, anchor="center")
+    start_button.place(relx=0.5, rely=0.7, anchor="center")
     
-    home_button = Button(home_frame, text="Back", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
-    home_button.place(x=40, y=WINDOW_H-20, anchor="center")
+    home_button = Button(home_frame, text="Back", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage(window_size))
+    home_button.place(relx=0.02, rely=0.02, anchor="nw")
 
 
 
