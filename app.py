@@ -138,14 +138,6 @@ def offlinePlay(username, bot_count, start_round_size, col_scheme):
 
 
 
-
-
-
-    peek_button = Button(options_frame, text="Peek", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: peek(bot_left_frame, bot_top_frame, bot_right_frame, deck_order))
-    peek_button.place(relx=0.2, rely=0.5, anchor="center")
-    
-    home_button = Button(options_frame, text="Exit Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
-    home_button.place(relx=0.05, rely=0.5, anchor="center")
 class offlineGame:
     def __init__(self, parent_frame, names, colour_scheme, round_size, cards_deck):# +difficulty/bot playstyles, bot amount, colour scheme all in game config class object?
         
@@ -180,7 +172,7 @@ class offlineGame:
         self.top_frame = self._makeFrame(self.parent, 0.48, 0.16, 0.5, 0.21, "blue", "center")
         self.right_frame = self._makeFrame(self.parent, 0.15, 0.6, 0.9, 0.42, "yellow", "center")
         self.center_frame = self._makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, "orange", "center")
-        self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.25, 0.5, 0.85, "red", "center")
+        self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
 
 
         self.current_player = 2#random.randint(0, self.players-1)
@@ -189,6 +181,7 @@ class offlineGame:
 
         self.predictions = [0]*self.players
         self.subRoundsWon = [0]*self.players
+        self.scores = [0]*self.players
 
         self.center_state = []#stores player and their card in center
 
@@ -216,12 +209,13 @@ class offlineGame:
         #   self.subRoundsWon is being updated after round end so final win carry over sometimes?
         #   add prediction input for user and bots
         #   exit game destroys all, user selects and some hand frames come through
+        #   peek is broken
 
         
     def _setHandOrder(self):
         self.deck_order = [1, 1, 2]  #left, top, right
     
-        if BOTS == 3:
+        if self.players-1 == 3:
             self.deck_order[1] = 2
             self.deck_order[2] = 3
 
@@ -254,10 +248,8 @@ class offlineGame:
                 except:
                     print("passed preds")
 
-
         self.user_score_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[0]) + ", Won: " + str(self.subRoundsWon[0]), 0.3, 0.695, "center")
 
-        
         if self.players == 2:
             self.score_top_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.5, 0.1, "center")
 
@@ -269,6 +261,11 @@ class offlineGame:
             self.score_left_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.1, 0.1, "center")
             self.score_top_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[2]) + ", Won: " + str(self.subRoundsWon[2]), 0.5, 0.1, "center")
             self.score_right_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[3]) + ", Won: " + str(self.subRoundsWon[3]), 0.9, 0.1, "center")
+
+
+    def _peekOpponents(self):
+        self.peek = not self.peek
+        self._placeAllHands()
 
 
         #place all opponent cards
