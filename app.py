@@ -113,17 +113,28 @@ def offlineConfigFrame(username, col_scheme, window_size):
     home_button.place(relx=0.02, rely=0.02, anchor="nw")
 
 
+def offlinePlay(username, bot_count, start_round_size, col_scheme):
+    print("offline with bots")
 
+    #frame for all to go in instead of root to destroy if back to main menu or game over
+    offline_frame = tk.Frame(root, bg=COL_PRIME).place(relwidth=1, relheight=1, relx=0, rely=0)
 
+    bot_names = ["Leon", "Napoleon", "Jesse", "Mr. Blonde", "Falcon", "Vulture", "Banshee", "Nova",
+                 "Voyager", "Zoe", "Arya", "Lab Rat", "Katie"]
 
-    USERNAME = "temp user"
-    player_names = [USERNAME, "bot1", "bot2", "bot3"]
-    print("here class start")##################################################################################################################
+    if len(username) > 15:
+        username = username[0:15]
 
+    player_names = [username]
 
-    offlineGame(offline_frame, player_names, COL_SCHEME, ROUND_SIZE, deck_order, CARDS_DECK)
+    #pick random names for bots
+    for bot in range(bot_count):
+        pick = random.randint(0, len(bot_names)-1)
+        player_names.append(bot_names[pick])
+        del bot_names[pick]
 
-    #ChangeText(offline_frame, WINDOW_W, WINDOW_H, BOTS, ALL_HANDS, ROUND_SIZE, player_names, bot_left_frame, bot_top_frame, bot_right_frame, deck_order)
+    ##################################################################################################################
+    offlineGame(offline_frame, player_names, col_scheme, start_round_size, CARDS_DECK)
 
 
 
