@@ -29,25 +29,20 @@ CARDS_DECK      = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s",
                    "xqc", "xqd", "xqh", "xqs", "ykc", "ykd", "ykh", "yks",
                    "zac", "zad", "zah", "zas"]
 
-WINDOW_W    = 900
-WINDOW_H    = 600
 CARDS_SCALE = 9
 
 
 def resize(dimentions):
-    global WINDOW_W, WINDOW_H, CARDS_SCALE
+    global CARDS_SCALE
     CARDS_SCALE = CARDS_SCALES[WINDOW_SIZES.index(dimentions)]
     dimentions = str(dimentions).split("x")
-    WINDOW_W, WINDOW_H = int(dimentions[0]), int(dimentions[1])
-    root.geometry(f"{WINDOW_W}x{WINDOW_H}")
+    w, h = int(dimentions[0]), int(dimentions[1])
+    root.geometry(f"{w}x{h}")
 
 
-def updateLayout(dimentions, build_frame):
-    #global USERNAME, IDENTIFIER
-    #USERNAME = user
-    #IDENTIFIER = identify
+def updateLayout(dimentions, build_frame, window_size):
     resize(dimentions)
-    build_frame()
+    build_frame(window_size)
     
 
 def showColourScheme(frame, colour_string):
