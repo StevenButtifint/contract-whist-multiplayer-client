@@ -305,6 +305,23 @@ def createHomePage():
                 self.hands[index][card] = ordered_hand[card]
 
 
+    def playerMadeTurn(self, card):
+        self.playerOptions = self.playerOptions.destroy()
+        self.current_player = 1
+
+        self._placeCardCenter(0, card)
+        #delete card
+        del self.hands[0][int(card)]
+
+        self.round_size -= 1
+
+        self.player_hand_frame = self.player_hand_frame.destroy()
+        self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
+        self.player_hand_frame.update_idletasks()
+        print("a")
+        self.showPlayerCards()
+        
+
     global home_frame
     try:
         home_frame.destroy()
