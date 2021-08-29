@@ -40,9 +40,9 @@ def resize(dimentions):
     root.geometry(f"{w}x{h}")
 
 
-def updateLayout(dimentions, build_frame, window_size):
+def updateLayout(dimentions, build_frame):
     resize(dimentions)
-    build_frame(window_size)
+    build_frame()
     
 
 def showColourScheme(frame, colour_string):
@@ -64,7 +64,7 @@ def placeImage(frame, directory, relx, rely):
 
 
 
-def offlineConfigFrame(username, col_scheme, window_size):
+def offlineConfigFrame(username, col_scheme):
     global config_frame
     try:
         config_frame.destroy()
@@ -104,7 +104,7 @@ def offlineConfigFrame(username, col_scheme, window_size):
     start_button = Button(home_frame, text="Start", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: offlinePlay(username, int(bots_string.get()), int(card_count_string.get()), col_scheme))
     start_button.place(relx=0.5, rely=0.7, anchor="center")
     
-    home_button = Button(home_frame, text="Back", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage(window_size))
+    home_button = Button(home_frame, text="Back", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
     home_button.place(relx=0.02, rely=0.02, anchor="nw")
 
 
