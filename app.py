@@ -327,6 +327,11 @@ def createHomePage():
         self.showPlayerCards()
         
 
+        
+
+
+    def _setTrumpSuit(self):
+         self.trump_suit = self.suits[self.round_number%4]
     global home_frame
     try:
         home_frame.destroy()
