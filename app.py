@@ -195,10 +195,10 @@ class offlineGame:
         home_button = Button(self.parent, text="Exit Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
         home_button.place(relx=0.05, rely=0.025, anchor="center")
 
-        self._placeNames()
-        self._placePredictionsWon()
-        self._setupRound()
-        self.startGame()
+        #self._placeNames()
+        #self._placePredictionsWon()
+        #self._setupRound()
+        #self.startGame()
 
         #TODO -
         #   self.subRoundsWon is being updated after round end so final win carry over sometimes?
@@ -209,6 +209,11 @@ class offlineGame:
         
     def _setHandOrder(self):
         self.deck_order = [1, 1, 2]  #left, top, right
+    def offlineStart(self):
+        self._placeNames()
+        self._placePredictionsWon()
+        self._setupRound()
+        self.startGame()
     
         if self.players-1 == 3:
             self.deck_order[1] = 2
