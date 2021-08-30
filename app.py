@@ -206,18 +206,18 @@ class offlineGame:
         #   exit game destroys all, user selects and some hand frames come through
         #   peek is broken
 
-        
-    def _setHandOrder(self):
-        self.deck_order = [1, 1, 2]  #left, top, right
     def offlineStart(self):
         self._placeNames()
         self._placePredictionsWon()
         self._setupRound()
         self.startGame()
     
+    def _setHandOrder(self):
+        deck_order = [1, 1, 2]  #left, top, right
         if self.players-1 == 3:
-            self.deck_order[1] = 2
-            self.deck_order[2] = 3
+            deck_order[1] = 2
+            deck_order[2] = 3
+        return deck_order
 
 
     def _placeNames(self):#place names and predicted/achieved
