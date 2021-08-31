@@ -329,6 +329,21 @@ def createHomePage():
         self.showPlayerCards()
         
 
+    def showPlayerCards(self):
+        for x in range(len(self.hands[0])):
+
+            img_loc = "res/images/card_packs/" + self.colour_scheme + "/" + self.hands[0][x] + ".png"
+
+            h = self.player_hand_frame.winfo_height()# 726//(CARDS_SCALE-3)
+            #print(h)
+            w = int(0.6887*h)+1#500//(CARDS_SCALE-3)
+            
+            relx = 0.09*(x+1)
+            self._placeImage(self.player_hand_frame, img_loc, w, h, relx, 0, "n")
+
+        #print(self.player_hand_frame.winfo_width(), self.player_hand_frame.winfo_height())
+            
+
         
 
 
