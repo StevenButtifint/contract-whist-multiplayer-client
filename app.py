@@ -211,10 +211,12 @@ class offlineGame:
         self._placePredictionsWon()
         self._setupRound()
         self.startGame()
-    
-    def _setHandOrder(self):
+
+
+    @staticmethod
+    def _setHandOrder(player_count):
         deck_order = [1, 1, 2]  #left, top, right
-        if self.players-1 == 3:
+        if player_count == 4:
             deck_order[1] = 2
             deck_order[2] = 3
         return deck_order
