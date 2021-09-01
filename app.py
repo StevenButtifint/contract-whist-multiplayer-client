@@ -163,12 +163,16 @@ class offlineGame:
 
 
         self.options_frame = self._makeFrame(self.parent, 1, 0.05, 0.5, 0, "green", "n")
-        self.left_frame = self._makeFrame(self.parent, 0.15, 0.6, 0.1, 0.42, "pink", "center")
-        self.top_frame = self._makeFrame(self.parent, 0.48, 0.16, 0.5, 0.21, "blue", "center")
-        self.right_frame = self._makeFrame(self.parent, 0.15, 0.6, 0.9, 0.42, "yellow", "center")
+        self.left_frame = self._makeFrame(self.parent, 0.11, 0.6, 0.1, 0.42, "pink", "center")
+        self.top_frame = self._makeFrame(self.parent, 0.48, 0.15, 0.5, 0.21, "blue", "center")
+        self.right_frame = self._makeFrame(self.parent, 0.11, 0.6, 0.9, 0.42, "yellow", "center")
         self.center_frame = self._makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, "orange", "center")
         self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
 
+        self.player_hand_frame.update_idletasks()
+
+        self.frame_dims = self._getFrameDims(self.top_frame, self.left_frame, self.right_frame,
+                                             self.player_hand_frame)
 
         self.current_player = 2#random.randint(0, self.players-1)
         self.center_cards = 0
@@ -205,6 +209,15 @@ class offlineGame:
         #   add prediction input for user and bots
         #   exit game destroys all, user selects and some hand frames come through
         #   peek is broken
+
+
+    def _getFrameDims(self, *args):
+        dimentions = []
+        for frame in args:
+            dimentions.append(frame.winfo_width())
+            dimentions.append(frame.winfo_height())
+        return dimentions
+        
 
     def offlineStart(self):
         self._placeNames()
