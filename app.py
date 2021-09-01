@@ -186,6 +186,13 @@ class offlineGame:
 
         self.game_active = True
         self.peek = False
+
+        self.user_score_label = self._makeLabel(self.parent, "", 0.3, 0.695, "center")
+        self.score_top_label = self._makeLabel(self.parent, "", 0.5, 0.1, "center")
+        self.score_left_label = self._makeLabel(self.parent, "", 0.1, 0.1, "center")
+        self.score_right_label = self._makeLabel(self.parent, "", 0.9, 0.1, "center")
+
+
         
         self.game = tk.Label(self.parent)
         self.game.pack()
@@ -248,34 +255,16 @@ class offlineGame:
 
 
     def _placePredictionsWon(self):
-        try:#improve so dont distroy and remake, change ["text"] param like self.Player_turn_label
-            self.user_score_label = self.user_score_label.destroy()
-            self.score_top_label = self.score_top_label.destroy()
-        except:
-            try:
-                self.score_left_label = self.score_left_label.destroy()
-                self.score_right_label = self.score_right_label.destroy()
-            except:
-                try:
-                    self.score_left_label = self.score_left_label.destroy()
-                    self.score_top_label = self.score_top_label.destroy()
-                    self.score_right_label = self.score_right_label.destroy()
-                except:
-                    print("passed preds")
-
-        self.user_score_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[0]) + ", Won: " + str(self.subRoundsWon[0]), 0.3, 0.695, "center")
-
+        self.user_score_label["text"] = "Predicted: " + str(self.predictions[0]) + ", Won: " + str(self.subRoundsWon[0])
         if self.players == 2:
-            self.score_top_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.5, 0.1, "center")
-
+            self.score_top_label["text"] = "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1])
         elif self.players == 3:
-            self.score_left_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.1, 0.1, "center")
-            self.score_right_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[2]) + ", Won: " + str(self.subRoundsWon[2]), 0.9, 0.1, "center")
-
+            self.score_left_label["text"] = "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1])
+            self.score_right_label["text"] = "Predicted: " + str(self.predictions[2]) + ", Won: " + str(self.subRoundsWon[2])
         elif self.players == 4:
-            self.score_left_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1]), 0.1, 0.1, "center")
-            self.score_top_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[2]) + ", Won: " + str(self.subRoundsWon[2]), 0.5, 0.1, "center")
-            self.score_right_label = self._makeLabel(self.parent, "Predicted: " + str(self.predictions[3]) + ", Won: " + str(self.subRoundsWon[3]), 0.9, 0.1, "center")
+            self.score_left_label["text"] = "Predicted: " + str(self.predictions[1]) + ", Won: " + str(self.subRoundsWon[1])
+            self.score_top_label["text"] = "Predicted: " + str(self.predictions[2]) + ", Won: " + str(self.subRoundsWon[2])
+            self.score_right_label["text"] = "Predicted: " + str(self.predictions[3]) + ", Won: " + str(self.subRoundsWon[3])
 
 
     def _peekOpponents(self):
