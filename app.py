@@ -326,22 +326,28 @@ def createHomePage():
 
         self.player_hand_frame = self.player_hand_frame.destroy()
         self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
-        self.player_hand_frame.update_idletasks()
-        print("a")
         self.showPlayerCards()
-        
+
 
     def showPlayerCards(self):
         for x in range(len(self.hands[0])):
-
             img_loc = "res/images/card_packs/" + self.colour_scheme + "/" + self.hands[0][x] + ".png"
-
-            h = self.player_hand_frame.winfo_height()# 726//(CARDS_SCALE-3)
-            #print(h)
-            w = int(0.6887*h)+1#500//(CARDS_SCALE-3)
-            
+            h = self.frame_dims[7]
+            w = int(0.6887*h)
             relx = 0.09*(x+1)
             self._placeImage(self.player_hand_frame, img_loc, w, h, relx, 0, "n")
+            
+
+    @staticmethod
+    def _placeImage(frame, img_location, width, height, relx, rely, anchor):
+            image = Image.open(img_location)
+            image = image.resize((width, height))
+            image = ImageTk.PhotoImage(image)
+            image_label = Label(frame, image=image)
+            image_label.image = image
+            image_label.place(relx=relx, rely=rely, anchor=anchor)
+
+
 
         #print(self.player_hand_frame.winfo_width(), self.player_hand_frame.winfo_height())
             
