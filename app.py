@@ -349,7 +349,27 @@ def createHomePage():
 
 
 
-        #print(self.player_hand_frame.winfo_width(), self.player_hand_frame.winfo_height())
+
+    def _calculateRoundWinner(self):
+        card_order = ["2", "3", "4", "5", "6", "7", "8", "9", "v", "w", "x", "y", "z"]
+        card_values = []
+        round_suit = self.center_state[0][1][-1]
+
+        #calculate card values
+        for pair in self.center_state:
+            card = pair[1]
+            value = 0
+            if self.trump_suit in card:
+                value += 13
+            if round_suit in card:
+                value += card_order.index(card[0])
+            card_values.append(value)
+
+        #calc winning player index
+        winner = self.center_state[card_values.index(max(card_values))][0]
+        return winner
+      
+
             
 
         
