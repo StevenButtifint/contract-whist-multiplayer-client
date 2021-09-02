@@ -350,6 +350,11 @@ def createHomePage():
 
 
 
+    def _placeAllHands(self):
+        for p in range(1, self.players):
+            self._placeOpponentCards(p)
+
+
     def _calculateRoundWinner(self):
         card_order = ["2", "3", "4", "5", "6", "7", "8", "9", "v", "w", "x", "y", "z"]
         card_values = []
