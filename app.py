@@ -355,6 +355,15 @@ def createHomePage():
             image_label.place(relx=relx, rely=rely, anchor=anchor)
 
 
+    def _placeCardCenter(self, player, card_index):
+        self.center_state.append([player, self.hands[player][int(card_index)]])
+        img_loc = "res/images/card_packs/" + self.colour_scheme + "/" + self.hands[player][int(card_index)] + ".png"
+        h = self.frame_dims[7]
+        w = int(h/1.452)
+        relx = 0.4+(self.center_cards*0.14)
+        self._placeImage(self.center_frame, img_loc, w, h, relx, 0.5, "center")
+            
+        self.center_cards += 1
 
 
     def _placeAllHands(self):
