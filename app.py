@@ -433,6 +433,13 @@ def createHomePage():
 
     def _setTrumpSuit(self):
          self.trump_suit = self.suits[self.round_number%4]
+    @staticmethod
+    def _makeFrame(parent, relw, relh, relx, rely, col, anchor):
+        frame = tk.Frame(parent, bg=col)
+        frame.place(relwidth=relw, relheight=relh, relx=relx, rely=rely, anchor=anchor)
+        return frame
+
+
     global home_frame
     try:
         home_frame.destroy()
