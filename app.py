@@ -433,6 +433,33 @@ def createHomePage():
 
     def _setTrumpSuit(self):
          self.trump_suit = self.suits[self.round_number%4]
+
+        
+    def populateCenter(self):
+        #trump suit center info
+        self._setTrumpSuit()
+        h = self.frame_dims[7]//2
+        trump_suit_label = Label(self.center_frame, text="Trump: " + self.suit_names[self.suits.index(self.trump_suit)], bg="green", fg="white")
+        trump_suit_label.place(relx=0.15, rely=0.14, anchor="center")
+        image = Image.open("res/images/icons/" + self.trump_suit + "_icon.png")
+        image = image.resize((h, h))
+        image = ImageTk.PhotoImage(image)
+
+       # cardImg = PhotoImage(file = "res/images/icons/" + self.trump_suit + "_icon.png")
+        image_label = Label(self.center_frame, image=image)
+        image_label.image = image
+        image_label.place(relx=0.15, rely=0.32, anchor="center")
+
+        scores = ""
+        for index, name in enumerate(self.names):
+            scores += "\n" + name + ": " + str(self.scores[index])
+            
+        self.scores_label = self._makeLabel(self.center_frame, "SCORES" + scores, 0.15, 0.75, "center")
+
+        round_label = Label(self.center_frame, text="Round: " + str(self.round_number+1) + " of " + str(self.total_rounds), bg="green", fg="white")
+        round_label.place(relx=0.5, rely=0.05, anchor="center")
+
+
     @staticmethod
     def _makeFrame(parent, relw, relh, relx, rely, col, anchor):
         frame = tk.Frame(parent, bg=col)
