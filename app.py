@@ -440,6 +440,13 @@ def createHomePage():
         return frame
 
 
+    @staticmethod
+    def _makeLabel(parent, text, relx, rely, anchor):
+        label = Label(parent, text=text)
+        label.place(relx=relx, rely=rely, anchor=anchor)
+        return label
+
+
     global home_frame
     try:
         home_frame.destroy()
