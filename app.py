@@ -129,7 +129,12 @@ def offlinePlay(username, bot_count, start_round_size, col_scheme):
         del bot_names[pick]
 
     ##################################################################################################################
-    offlineGame(offline_frame, player_names, col_scheme, start_round_size, CARDS_DECK)
+    test = offlineGame(offline_frame, player_names, col_scheme, start_round_size, CARDS_DECK)
+
+    home_button = Button(offline_frame, text="End Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage(userConfig))
+    home_button.place(relx=0.8, rely=0.025, anchor="center")
+
+    test.offlineStart()
 
 
 
@@ -152,7 +157,7 @@ class offlineGame:
         self.total_rounds = round_size
 
         
-        self.deck_order = self._setHandOrder() #deck_order
+        self.deck_order = self._setHandOrder(self.players) #deck_order
 
         
 
@@ -174,7 +179,7 @@ class offlineGame:
         self.frame_dims = self._getFrameDims(self.top_frame, self.left_frame, self.right_frame,
                                              self.player_hand_frame)
 
-        self.current_player = 2#random.randint(0, self.players-1)
+        self.current_player = 0#random.randint(0, self.players-1)
         self.center_cards = 0
         self.results = []
 
@@ -185,7 +190,9 @@ class offlineGame:
         self.center_state = []#stores player and their card in center
 
         self.game_active = True
-        self.peek = False
+        self.peek = True
+        self.pause_user = False
+
 
         self.user_score_label = self._makeLabel(self.parent, "", 0.3, 0.695, "center")
         self.score_top_label = self._makeLabel(self.parent, "", 0.5, 0.1, "center")
@@ -212,10 +219,9 @@ class offlineGame:
         #self.startGame()
 
         #TODO -
-        #   self.subRoundsWon is being updated after round end so final win carry over sometimes?
+        #   self.subRoundsWon is being updated after round end so final win carrys over
         #   add prediction input for user and bots
         #   exit game destroys all, user selects and some hand frames come through
-        #   peek is broken
 
 
     def _getFrameDims(self, *args):
@@ -286,7 +292,6 @@ class offlineGame:
 
     def _shuffleDeck(self):
         random.shuffle(self.cards_deck)
-def createHomePage():
 
 
     def _orderHands(self):
@@ -324,7 +329,7 @@ def createHomePage():
     def playerMadeTurn(self, card):
         self.playerOptions = self.playerOptions.destroy()
         self.current_player = 1
-
+        self.pause_user = False
         self._placeCardCenter(0, card)
         #delete card
         del self.hands[0][int(card)]
