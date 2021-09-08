@@ -457,20 +457,20 @@ class offlineGame:
        #                 [0, True, 1, True, 2, False, 3, False],
        #                 [100, True, 101, True, 102, False, 103, False]]
         
-        self.results_title_label = self._makeLabel(self.parent, "Results", 0.5, 0.15, "center")
+        self.results_title_label = self._makeLabel(self.parent, "Results", 0.5, 0.15, "white", self.base_colour, "center")
 
-        self.round_title_label = self._makeLabel(self.parent, "Round", 0.08, 0.3, "center")
+        self.round_title_label = self._makeLabel(self.parent, "Round", 0.08, 0.3, "white", self.base_colour, "center")
     
         
         for col, name in enumerate(self.names):
-            self.name_label = self._makeLabel(self.parent, name, 0.25+(0.2*col), 0.3, "w")
+            self.name_label = self._makeLabel(self.parent, name, 0.25+(0.2*col), 0.3, "white", self.base_colour, "w")
             for r in range(len(self.results)):
                 if col == 0:
-                    self.round_number_label = self._makeLabel(self.parent, str(r+1), 0.08+(0.2*col), 0.32+((r+1)*0.05), "center")
-                self.score_label = self._makeLabel(self.parent, str(self.results[r][col*2]), 0.24+(0.2*col), 0.32+((r+1)*0.05), "center")
-                self.score_label = self._makeLabel(self.parent, str(self.results[r][col*2+1]), 0.28+(0.2*col), 0.32+((r+1)*0.05), "center")
+                    self.round_number_label = self._makeLabel(self.parent, str(r+1), 0.08+(0.2*col), 0.32+((r+1)*0.05), "white", self.base_colour, "center")
+                self.score_label = self._makeLabel(self.parent, str(self.results[r][col*2]), 0.24+(0.2*col), 0.32+((r+1)*0.05), "white", self.base_colour, "center")
+                self.score_label = self._makeLabel(self.parent, str(self.results[r][col*2+1]), 0.28+(0.2*col), 0.32+((r+1)*0.05), "white", self.base_colour, "center")
 
-        self.winner_label = self._makeLabel(self.parent, "PLAYER won the game!", 0.5, 0.88, "center")
+        self.winner_label = self._makeLabel(self.parent, "PLAYER won the game!", 0.5, 0.88, "white", self.base_colour, "center")
 
         close_game_button = Button(self.parent, text="Finish", width=8, command= lambda x=None: closeOfflineGame())
         close_game_button.place(relx=0.5, rely=0.95, anchor="center")
