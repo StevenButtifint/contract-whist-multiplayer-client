@@ -167,12 +167,12 @@ class offlineGame:
         self.round_number = 0
 
 
-        self.options_frame = self._makeFrame(self.parent, 1, 0.05, 0.5, 0, "green", "n")
-        self.left_frame = self._makeFrame(self.parent, 0.11, 0.6, 0.1, 0.42, "pink", "center")
-        self.top_frame = self._makeFrame(self.parent, 0.48, 0.15, 0.5, 0.21, "blue", "center")
-        self.right_frame = self._makeFrame(self.parent, 0.11, 0.6, 0.9, 0.42, "yellow", "center")
-        self.center_frame = self._makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, "orange", "center")
-        self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
+        self.options_frame = self._makeOptionsFrame()#._makeFrame(self.parent, 1, 0.05, 0.5, 0, "green", "n")
+        self.left_frame = self._makeLeftFrame() #_makeFrame(self.parent, 0.11, 0.6, 0.1, 0.42, "pink", "center")
+        self.top_frame = self._makeTopFrame()#_makeFrame(self.parent, 0.48, 0.15, 0.5, 0.21, "blue", "center")
+        self.right_frame = self._makeRightFrame()#_makeFrame(self.parent, 0.11, 0.6, 0.9, 0.42, "yellow", "center")
+        self.center_frame = self._makeCenterFrame() #_makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, "orange", "center")
+        self.player_hand_frame = self._makePlayerHandFrame()#._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
 
         self.player_hand_frame.update_idletasks()
 
@@ -230,7 +230,31 @@ class offlineGame:
             dimentions.append(frame.winfo_width())
             dimentions.append(frame.winfo_height())
         return dimentions
-        
+
+
+    def _makeOptionsFrame(self):
+        return self._makeFrame(self.parent, 1, 0.05, 0.5, 0, "green", "n")
+
+
+    def _makeLeftFrame(self):
+        return self._makeFrame(self.parent, 0.11, 0.6, 0.1, 0.42, self.base_colour, "center")
+
+
+    def _makeTopFrame(self):
+        return self._makeFrame(self.parent, 0.48, 0.15, 0.5, 0.21, self.base_colour, "center")
+
+
+    def _makeRightFrame(self):
+        return self._makeFrame(self.parent, 0.11, 0.6, 0.9, 0.42, self.base_colour, "center")
+
+
+    def _makeCenterFrame(self):
+        return self._makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, self.center_colour, "center")
+
+
+    def _makePlayerHandFrame(self):
+        return self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, self.base_colour, "center")
+
 
     def offlineStart(self):
         self._placeNames()
@@ -337,7 +361,7 @@ class offlineGame:
         self.round_size -= 1
 
         self.player_hand_frame = self.player_hand_frame.destroy()
-        self.player_hand_frame = self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
+        self.player_hand_frame = self._makePlayerHandFrame()#self._makeFrame(self.parent, 0.9, 0.21, 0.5, 0.84, "red", "center")
         self.showPlayerCards()
 
 
@@ -410,7 +434,7 @@ class offlineGame:
         #clear center
         self.center_state = []
         self.center_frame = self.center_frame.destroy()
-        self.center_frame = self._makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, "orange", "center")
+        self.center_frame = self._makeCenterFrame() #self._makeFrame(self.parent, 0.6, 0.35, 0.5, 0.49, "orange", "center")
         self.center_cards = 0
 
         #self._setupRound()
