@@ -154,7 +154,9 @@ class offlineGame:
         
         self.deck_order = self._setHandOrder(self.players) #deck_order
 
-        
+
+        self.base_colour = "PaleGreen1" # debug set to: "medium sea green" 
+        self.center_colour = "forest green"
 
         self.suits = ["h", "s", "d", "c"]
         self.suit_names = ["Hearts", "Spades", "Dimonds", "Clubs"]
@@ -189,10 +191,10 @@ class offlineGame:
         self.pause_user = False
 
 
-        self.user_score_label = self._makeLabel(self.parent, "", 0.3, 0.695, "center")
-        self.score_top_label = self._makeLabel(self.parent, "", 0.5, 0.1, "center")
-        self.score_left_label = self._makeLabel(self.parent, "", 0.1, 0.1, "center")
-        self.score_right_label = self._makeLabel(self.parent, "", 0.9, 0.1, "center")
+        self.user_score_label = self._makeLabel(self.parent, "", 0.3, 0.695, "black", self.base_colour, "center")
+        self.score_top_label = self._makeLabel(self.parent, "", 0.5, 0.1, "black", self.base_colour, "center")
+        self.score_left_label = self._makeLabel(self.parent, "", 0.1, 0.1, "black", self.base_colour, "center")
+        self.score_right_label = self._makeLabel(self.parent, "", 0.9, 0.1, "black", self.base_colour, "center")
 
 
         
@@ -200,7 +202,7 @@ class offlineGame:
         self.game.pack()
 
 
-        self.Player_turn_label = self._makeLabel(self.parent, "", 0.5, 0.695, "center")
+        self.Player_turn_label = self._makeLabel(self.parent, "", 0.5, 0.695, "black", self.base_colour, "center")
 
         peek_button = Button(self.parent, text="Peek", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: self._peekOpponents())
         peek_button.place(relx=0.2, rely=0.025, anchor="center")
@@ -269,14 +271,14 @@ class offlineGame:
 
     def _placeNames(self):#place names and predicted/achieved
         if self.players == 2:
-            name_top_label = self._makeLabel(self.parent, self.names[1], 0.5, 0.07, "center")
+            name_top_label = self._makeLabel(self.parent, self.names[1], 0.5, 0.07, "black", self.base_colour, "center")
         elif self.players == 3:
-            name_left_label = self._makeLabel(self.parent, self.names[1], 0.1, 0.07, "center")
-            name_right_label = self._makeLabel(self.parent, self.names[2], 0.9, 0.07, "center")
+            name_left_label = self._makeLabel(self.parent, self.names[1], 0.1, 0.07, "black", self.base_colour, "center")
+            name_right_label = self._makeLabel(self.parent, self.names[2], 0.9, 0.07, "black", self.base_colour, "center")
         elif self.players == 4:
-            name_left_label = self._makeLabel(self.parent, self.names[1], 0.1, 0.07, "center")
-            name_top_label = self._makeLabel(self.parent, self.names[2], 0.5, 0.07, "center")
-            name_right_label = self._makeLabel(self.parent, self.names[3], 0.9, 0.07, "center")
+            name_left_label = self._makeLabel(self.parent, self.names[1], 0.1, 0.07, "black", self.base_colour, "center")
+            name_top_label = self._makeLabel(self.parent, self.names[2], 0.5, 0.07, "black", self.base_colour, "center")
+            name_right_label = self._makeLabel(self.parent, self.names[3], 0.9, 0.07, "black", self.base_colour, "center")
 
 
     def _placePredictionsWon(self):
@@ -497,8 +499,8 @@ class offlineGame:
         #trump suit center info
         self._setTrumpSuit()
         h = self.frame_dims[7]//2
-        trump_suit_label = Label(self.center_frame, text="Trump: " + self.suit_names[self.suits.index(self.trump_suit)], bg="green", fg="white")
-        trump_suit_label.place(relx=0.15, rely=0.14, anchor="center")
+        trump_suit_label = Label(self.center_frame, text="Trump: " + self.suit_names[self.suits.index(self.trump_suit)], bg=self.center_colour, fg="white")
+        trump_suit_label.place(relx=0.15, rely=0.12, anchor="center")
         image = Image.open("res/images/icons/" + self.trump_suit + "_icon.png")
         image = image.resize((h, h))
         image = ImageTk.PhotoImage(image)
@@ -512,9 +514,9 @@ class offlineGame:
         for index, name in enumerate(self.names):
             scores += "\n" + name + ": " + str(self.scores[index])
             
-        self.scores_label = self._makeLabel(self.center_frame, "SCORES" + scores, 0.15, 0.75, "center")
+        self.scores_label = self._makeLabel(self.center_frame, "SCORES" + scores, 0.15, 0.75, "white", self.center_colour, "center")
 
-        round_label = Label(self.center_frame, text="Round: " + str(self.round_number+1) + " of " + str(self.total_rounds), bg="green", fg="white")
+        round_label = Label(self.center_frame, text="Round: " + str(self.round_number+1) + " of " + str(self.total_rounds), bg=self.center_colour, fg="white")
         round_label.place(relx=0.5, rely=0.05, anchor="center")
 
 
@@ -526,8 +528,8 @@ class offlineGame:
 
 
     @staticmethod
-    def _makeLabel(parent, text, relx, rely, anchor):
-        label = Label(parent, text=text)
+    def _makeLabel(parent, text, relx, rely, fg_colour, bg_colour, anchor):
+        label = Label(parent, text=text, fg=fg_colour, bg=bg_colour)
         label.place(relx=relx, rely=rely, anchor=anchor)
         return label
 
