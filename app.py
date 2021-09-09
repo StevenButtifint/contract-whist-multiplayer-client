@@ -35,9 +35,9 @@ def resize(dimentions):
     root.geometry(f"{w}x{h}")
 
 
-def updateLayout(dimentions, build_frame):
+def updateLayout(dimentions, build_frame, userConfig):
     resize(dimentions)
-    build_frame()
+    build_frame(userConfig)
     
 
 def showColourScheme(frame, colour_string):
@@ -99,7 +99,7 @@ def offlineConfigFrame(username, col_scheme):
     start_button = Button(home_frame, text="Start", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: offlinePlay(username, int(bots_string.get()), int(card_count_string.get()), col_scheme))
     start_button.place(relx=0.5, rely=0.7, anchor="center")
     
-    home_button = Button(home_frame, text="Back", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
+    home_button = Button(home_frame, text="Back", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage(userConfig))
     home_button.place(relx=0.02, rely=0.02, anchor="nw")
 
 
@@ -173,8 +173,7 @@ class offlineGame:
 
         self.player_hand_frame.update_idletasks()
 
-        self.frame_dims = self._getFrameDims(self.top_frame, self.left_frame, self.right_frame,
-                                             self.player_hand_frame)
+        self.frame_dims = self._getFrameDims(self.top_frame, self.left_frame, self.right_frame, self.player_hand_frame)
 
         self.current_player = 0#random.randint(0, self.players-1)
         self.center_cards = 0
@@ -207,7 +206,7 @@ class offlineGame:
         peek_button = Button(self.parent, text="Peek", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: self._peekOpponents())
         peek_button.place(relx=0.2, rely=0.025, anchor="center")
     
-        home_button = Button(self.parent, text="Exit Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage())
+        home_button = Button(self.parent, text="End Game", width=8, bg=COL_WIDGET, fg=COL_TEXT, command= lambda x=None: createHomePage(userConfig))
         home_button.place(relx=0.05, rely=0.025, anchor="center")
 
         #self._placeNames()
@@ -583,8 +582,8 @@ class offlineGame:
     resize_option_menu["menu"].config(bg=COL_WIDGET, fg=COL_TEXT)
     resize_option_menu.place(x=WINDOW_W//2, y=WINDOW_H*0.4+110, anchor="center")
 
-def main():
-    createHomePage()
+def main(userConfig):
+    createHomePage(userConfig)
 
 
 
@@ -596,4 +595,5 @@ if __name__ == "__main__":
     root.title(APP_TITLE)
     root.iconbitmap(APP_ICON)
     canvas = tk.Canvas(root, height=2000, width=2000, bg=COL_SECND).pack()
-    main()
+    userConfig = UserConfig()
+    main(userConfig)
