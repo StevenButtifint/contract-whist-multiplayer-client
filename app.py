@@ -3,7 +3,7 @@ import random
 import threading
 import time
 
-from tkinter import Label, Button, PhotoImage, StringVar
+from tkinter import Label, Button, PhotoImage, StringVar, Entry, Tk
 from PIL import ImageTk, Image
 
 from APIs.sheets_API import getSheetData, setSheetData
@@ -19,7 +19,6 @@ COL_WIDGET  = "DarkSeaGreen2"
 
 
 WINDOW_SIZES    = ["800x600", "900x700", "1200x700", "1600x1100", "2100x1300"]
-CARDS_SCALES    = [9, 8, 7, 4, 2]
 
 CARDS_DECK      = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s",
                    "4c", "4d", "4h", "4s", "5c", "5d", "5h", "5s",
@@ -29,12 +28,8 @@ CARDS_DECK      = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s",
                    "xqc", "xqd", "xqh", "xqs", "ykc", "ykd", "ykh", "yks",
                    "zac", "zad", "zah", "zas"]
 
-CARDS_SCALE = 9
-
 
 def resize(dimentions):
-    global CARDS_SCALE
-    CARDS_SCALE = CARDS_SCALES[WINDOW_SIZES.index(dimentions)]
     dimentions = str(dimentions).split("x")
     w, h = int(dimentions[0]), int(dimentions[1])
     root.geometry(f"{w}x{h}")
