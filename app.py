@@ -472,7 +472,61 @@ class offlineGame:
         close_game_button.place(relx=0.5, rely=0.95, anchor="center")
 
  
+    def startGame(self):
+       
+        #if center is full
+        if self.center_cards == self.players:
             
+                #pause to show winner for each round
+
+                #self.Player_turn_label['text'] = f'{self.names[self.current_player]} won the round!' #fixxx #move to win round code
+                #self.Player_turn_label['fg'] = "yellow"
+                
+                time.sleep(1)
+
+                #if there are still cards left to be played
+                if len(self.hands[0]) != 0:
+                    print("next sub round")
+                    self._startNextRound()
+                    
+                else:
+                    print("next round")                    
+                    
+                    #update scores and clear rounds one and TODO redo redictions
+                    new_results = []
+                    
+                    for player in range(self.players):
+
+                        self.scores[player] += self.subRoundsWon[player]
+
+                        new_results.append(self.scores[player])
+                        new_results.append(False)
+                        
+                        self.predictions[player] = 0
+                        self.subRoundsWon[player] = 0
+
+
+                    self.results.append(new_results)
+                    print(self.results)
+
+                    self.round_size -= 1
+
+                    self.round_number += 1
+
+                    if self.round_number == self.total_rounds:
+                        print("end game 2")
+                        self.game_active = False
+                        #results page
+                        self._showResults()
+                            
+                    else:
+                        self._startNextRound()
+
+                        self.round_size_two -= 1
+                        self.round_size = self.round_size_two
+                        self._setupRound()
+
+                
 
     @staticmethod
     def _getValidCards(full_hand, first_card_suit):
