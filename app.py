@@ -527,6 +527,38 @@ class offlineGame:
                         self._setupRound()
 
                 
+        if self.game_active:
+
+            #if players turn
+            if (self.current_player == self.players) or (self.current_player == 0):
+
+                #if player not already given choice options
+                if not self.pause_user:
+                    self.pause_user = True
+                    self.current_player = 0
+
+                    self.Player_turn_label["text"] = "Your Turn!"
+                    self.Player_turn_label['fg'] = "red"
+
+                    #show player hand
+                    self.showPlayerCards()
+
+                    #get valid player options
+                    hand = self.hands[0]
+                    if self.center_cards != 0:
+                        first_card_suit = self.center_state[0][1][-1]
+                        hand = self._getValidCards(hand, first_card_suit)
+                    valid_indexes = []
+                    for card in hand:
+                        valid_indexes.append(self.hands[0].index(card))
+                
+                    #show valid player options
+                    self.playerOptions = self._makeFrame(self.parent, 0.9, 0.05, 0.5, 0.95, self.base_colour, "n")
+                    for card in range(self.round_size):
+                        if card in valid_indexes:
+                            test = Button(self.playerOptions, text="Select", width=8, command= lambda x=card: self.playerMadeTurn(str(x)))
+                            test.place(relx=0.09*(card+1), rely=0.5, anchor="center")
+
 
     @staticmethod
     def _getValidCards(full_hand, first_card_suit):
