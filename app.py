@@ -559,6 +559,37 @@ class offlineGame:
                             test = Button(self.playerOptions, text="Select", width=8, command= lambda x=card: self.playerMadeTurn(str(x)))
                             test.place(relx=0.09*(card+1), rely=0.5, anchor="center")
 
+            #else bots turn
+            elif self.current_player != 0:
+                self.Player_turn_label['text'] = f'{self.names[self.current_player]}\'s turn!'
+                self.Player_turn_label['fg'] = "black"
+
+                #botMakeTurn function?
+                
+                hand = self.hands[self.current_player]
+                #get valid cards from bot hand
+                if self.center_cards != 0:
+                    first_card_suit = self.center_state[0][1][-1]
+                    hand = self._getValidCards(hand, first_card_suit)
+                    
+                #randomly pick index from valid cards
+                card_choice = hand[random.randint(0, len(hand)-1)]
+                choice_index = self.hands[self.current_player].index(card_choice)
+                
+                #place card in center
+                self._placeCardCenter(self.current_player, choice_index)
+
+                #delete card from bot hand            
+                del self.hands[self.current_player][choice_index]
+
+                #reload bot hand
+                self._placeOpponentCards(self.current_player)
+                
+                self.current_player += 1
+
+
+            self.game.after(1000, self.startGame)
+
 
     @staticmethod
     def _getValidCards(full_hand, first_card_suit):
