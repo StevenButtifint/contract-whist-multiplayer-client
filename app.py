@@ -641,6 +641,22 @@ class offlineGame:
                     image_label.image = image
                     image_label.place(relx=0.5, rely=0.09*(x+1), anchor="center")
 
+            #RIGHT
+            elif ((self.players == 3) & (opponent == 2)) or ((self.players == 4) & (opponent == 3)):
+                self.right_frame = self.right_frame.destroy()
+                self.right_frame = self._makeRightFrame()#self._makeFrame(self.parent, 0.11, 0.6, 0.9, 0.42, "yellow", "center")
+
+                w = self.frame_dims[4]
+                for x in range(len(self.hands[opponent])):#RIGHT
+                    if self.peek == True:
+                        card = self.hands[self.deck_order[2]][x]
+                    image = Image.open("res/images/card_packs/" + self.colour_scheme + "/" + card + ".png")
+                    image = image.resize((int(w*0.6887), w))
+                    image = image.transpose(Image.ROTATE_90)
+                    image = ImageTk.PhotoImage(image)
+                    image_label = Label(self.right_frame, image=image)
+                    image_label.image = image
+                    image_label.place(relx=0.5, rely=1-(0.09*(x+1)), anchor="center")
 
 
     def _setTrumpSuit(self):
