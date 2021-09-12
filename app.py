@@ -42,8 +42,10 @@ def updateLayout(dimentions, build_frame, userConfig):
 
 def showColourScheme(frame, colour_string):
     colour_scheme = colour_string.get()
-    placeImage(frame, "res/images/card_packs/" + colour_scheme + "/zas.png", 0.8, 0.5)
-    placeImage(frame, "res/images/card_packs/" + colour_scheme + "/bk.png", 0.2, 0.5)
+    h = root.winfo_height()//2
+    w = int(h*0.6887)
+    placeImage(frame, "res/images/card_packs/" + colour_scheme + "/zas.png", 0.8, 0.5, w, h)
+    placeImage(frame, "res/images/card_packs/" + colour_scheme + "/bk.png", 0.2, 0.5, w, h)
     colour_string.set("Colour Scheme: " + str(colour_scheme))
 
 
