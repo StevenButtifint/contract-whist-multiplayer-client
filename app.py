@@ -49,9 +49,9 @@ def showColourScheme(frame, colour_string):
     colour_string.set("Colour Scheme: " + str(colour_scheme))
 
 
-def placeImage(frame, directory, relx, rely):
+def placeImage(frame, directory, relx, rely, w, h):
     image = Image.open(directory)   
-    image = image.resize((500//3, 726//3))
+    image = image.resize((w, h))
     img = ImageTk.PhotoImage(image)
     label = Label(frame, image=img)
     label.image = img
