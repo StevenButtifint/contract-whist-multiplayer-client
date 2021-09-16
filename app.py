@@ -35,9 +35,7 @@ class contractWhistClient:
 
         self._resize(self.window, self.window_sizes[0])
         
-
-
-
+        self.user_config = UserConfig()
 
 
     @staticmethod
