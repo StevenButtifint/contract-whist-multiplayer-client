@@ -33,11 +33,18 @@ class contractWhistClient:
                            "wjc", "wjd", "wjh", "wjs", "xqc", "xqd", "xqh", "xqs", "ykc", "ykd",
                            "ykh", "yks", "zac", "zad", "zah", "zas"]
 
+        self._resize(self.window, self.window_sizes[0])
+        
 
 
 
 
 
+    @staticmethod
+    def _resize(frame, dimentions):
+        dimentions = str(dimentions).split("x")
+        w, h = int(dimentions[0]), int(dimentions[1])
+        frame.geometry(f"{w}x{h}")
 
     
 
