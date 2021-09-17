@@ -50,6 +50,10 @@ class contractWhistClient:
         self.showColourScheme(home_frame, colour_string)
 
 
+    def updateLayout(self, dimentions):
+        self._resize(self.window, dimentions)
+        self.makeHomePage()
+    
 
 
 
