@@ -45,6 +45,9 @@ class contractWhistClient:
         frame.geometry(f"{w}x{h}")
 
     
+    def updateColourScheme(self, home_frame, colour_string):
+        self.user_config.setColourScheme(colour_string.get())
+        self.showColourScheme(home_frame, colour_string)
 
 
 
