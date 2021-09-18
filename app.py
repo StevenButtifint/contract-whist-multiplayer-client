@@ -64,6 +64,14 @@ class contractWhistClient:
         colour_string.set("Colour Scheme: " + str(colour_scheme))
 
 
+    @staticmethod
+    def placeImage(frame, directory, relx, rely, w, h):
+        image = Image.open(directory)   
+        image = image.resize((w, h))
+        img = ImageTk.PhotoImage(image)
+        label = Label(frame, image=img)
+        label.image = img
+        label.place(relx=relx, rely=rely, anchor="center")   
 
 
 
