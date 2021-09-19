@@ -99,6 +99,8 @@ class contractWhistClient:
         offline_frame = tk.Frame(self.window, bg=self.colour_prime)
         offline_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
 
+        bot_names = ["Leon", "Napoleon", "Jesse", "Mr. Blonde", "Falcon", "Vulture", "Banshee", "Nova",
+                     "Voyager", "Zoe", "Arya", "Lab Rat", "Katie"]
 
 
 
