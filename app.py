@@ -92,7 +92,12 @@ class contractWhistClient:
         
 
 
+    def startOfflineGame(self, username, bot_count, start_round_size, col_scheme):
+        print("offline with bots")
 
+        #frame for all to go in instead of root to destroy if back to main menu or game over
+        offline_frame = tk.Frame(self.window, bg=self.colour_prime)
+        offline_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
 
 
 
