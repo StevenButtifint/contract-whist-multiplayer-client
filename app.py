@@ -102,7 +102,13 @@ class contractWhistClient:
         bot_names = ["Leon", "Napoleon", "Jesse", "Mr. Blonde", "Falcon", "Vulture", "Banshee", "Nova",
                      "Voyager", "Zoe", "Arya", "Lab Rat", "Katie"]
 
+        player_names = [username]
 
+        #pick random names for bots
+        for bot in range(bot_count):
+            pick = random.randint(0, len(bot_names)-1)
+            player_names.append(bot_names[pick])
+            del bot_names[pick]
 
 
 
