@@ -74,7 +74,10 @@ class contractWhistClient:
         label.place(relx=relx, rely=rely, anchor="center")   
 
 
+    def makeHomePage(self):
 
+        home_frame = tk.Frame(self.window, bg=self.colour_prime).place(relwidth=1, relheight=1, relx=0, rely=0)
+        self.window.update_idletasks()   
         
         
 
