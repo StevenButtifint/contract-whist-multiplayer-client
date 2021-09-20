@@ -79,6 +79,14 @@ class contractWhistClient:
         home_frame = tk.Frame(self.window, bg=self.colour_prime).place(relwidth=1, relheight=1, relx=0, rely=0)
         self.window.update_idletasks()   
         
+        username_label = Label(home_frame, text="Username:", bg=self.colour_prime, fg=self.colour_text)
+        username_label.place(relx=0.46, rely=0.4, anchor="e")
+        username = StringVar()
+        username.trace("w", lambda name, index, mode, username=username: self.user_config.setUsername(username.get()))
+        username_entry = Entry(home_frame, width=18, bg=self.colour_widget, fg=self.colour_text, textvariable=username)
+        username_entry.place(relx=0.48, rely=0.4, anchor="w")
+        username_entry.insert(0, self.user_config.getUsername())
+
         
 
         
