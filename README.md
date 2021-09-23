@@ -1,7 +1,8 @@
 # Contract Whist Multiplayer Client
 
 ### Screen Shots
-![alt text](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/tree/main/res/screenshots/home.jpg?raw=true)
+![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/home.jpg?raw=true "Home Page")
+![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/offline_game.jpg?raw=true "Offline Game")
 
 ---
 
