@@ -87,6 +87,16 @@ class contractWhistClient:
         username_entry.place(relx=0.48, rely=0.4, anchor="w")
         username_entry.insert(0, self.user_config.getUsername())
 
+        identifier_label = Label(home_frame, text="Identifier:", bg=self.colour_prime, fg=self.colour_text)
+        identifier_label.place(relx=0.46, rely=0.45, anchor="e")
+        identifier_code_label = Label(home_frame, text=self.user_config.getIdentifier(), bg=self.colour_prime, fg=self.colour_text)
+        identifier_code_label.place(relx=0.48, rely=0.45, anchor="w")
+        #identifier_entry = tk.Entry(home_frame, width=18, bg=COL_WIDGET, fg=COL_TEXT)
+        #identifier_entry.config(state="disabled")
+        #identifier_entry.place(relx=0.48, rely=0.45, anchor="w")
+        #identifier_entry.insert(0, self.user_config.getIdentifier())
+        #identifier_entry.config(state="disabled")
+
         
 
         
