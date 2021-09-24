@@ -97,7 +97,14 @@ class contractWhistClient:
         #identifier_entry.insert(0, self.user_config.getIdentifier())
         #identifier_entry.config(state="disabled")
 
+        colour_string = tk.StringVar(home_frame)
+        colour_string.set(self.user_config.getColourScheme())
+        colour_option_menu = tk.OptionMenu(home_frame, colour_string, *self.colour_schemes, command= lambda x=None: self.updateColourScheme(home_frame, colour_string))
+        colour_option_menu.config(width=21, bg=self.colour_widget, fg=self.colour_text)
+        colour_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
+        colour_option_menu.place(relx=0.5, rely=0.52, anchor="center")
         
+        self.showColourScheme(home_frame, colour_string)
 
         
         

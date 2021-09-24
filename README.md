@@ -2,7 +2,7 @@
 
 ### Screen Shots
 ![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/home.jpg?raw=true "Home Page")
-![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/offline_game.jpg?raw=true "Offline Game")
+![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/game_offline.jpg?raw=true "Offline Game")
 
 ---
 
