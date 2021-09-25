@@ -121,7 +121,11 @@ class contractWhistClient:
         online_button = Button(home_frame, text="Multiplayer", width=15, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: self.joinOnlineGame())
         online_button.place(relx=0.5, rely=0.75, anchor="center")
 
+        quit_button = Button(home_frame, text="Exit", width=8, bg=self.colour_widget, fg=self.colour_text, command=root.destroy)
+        quit_button.place(relx=0.5, rely=0.96, anchor="center")
 
+        #config_button = Button(home_frame, text="config", bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: createConfigPage())
+        #config_button.place(relx=0.01, rely=0.99, anchor="sw")
 
 
 
