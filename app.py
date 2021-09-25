@@ -115,7 +115,11 @@ class contractWhistClient:
         resize_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
         resize_option_menu.place(relx=0.5, rely=0.59, anchor="center")
         
+        offline_button = Button(home_frame, text="Offline With Bots", width=15, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: self.setupOfflineGame(username_entry.get()))
+        offline_button.place(relx=0.5, rely=0.7, anchor="center")
 
+        online_button = Button(home_frame, text="Multiplayer", width=15, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: self.joinOnlineGame())
+        online_button.place(relx=0.5, rely=0.75, anchor="center")
 
 
 
