@@ -1,8 +1,7 @@
 # Contract Whist Multiplayer Client
 
-### Screen Shots
-![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/home.jpg?raw=true "Home Page")
-![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/game_offline.jpg?raw=true "Offline Game")
+### Demo Video
+![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/offline_demo.gif?raw=true)
 
 ---
 
@@ -15,14 +14,35 @@
 
 ### Description
 
--TODO
+This game was made using Python and Tkinter GUI toolkit. It consists of offline and online game modes. There are many customization options such as card design, window resolution, bot count and starting round size. 
+
+---
 
 ### How To Play
 
--TODO
+##### Game Rules
+- Player with the most points at the end wins.
+- Cards are ranked A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 (top to bottom).
+- Start of each round players predict how many rounds they will win.
+- If players get their prediction correct they gain 10 points.
+- For every round a player wins they gain 1 point.
+- [More game details can be found here](https://www.fgbradleys.com/rules/rules4/Contract%20Whist%20-%20rules.pdf)
+
+##### Offline Play
+- Pick the number of bots to play againts.
+- Pick the size of the starting round.
+- Use "Peek" button to view bot cards.
+
+##### Online Play
+- Join the waiting lobby.
+- Private access server client will start game.
+
+---
 
 ### What I Learned
 
--TODO
+- Refreshed my knowledge of class programming in python.
+- Refined my utilisaion of static methods and internal class methods.
+- Improved my frame managment and optimisation skills with Tkinter GUI toolkit.
 
 [Back To The Top](#contract-whist-multiplayer-client)
