@@ -14,7 +14,7 @@
 
 ### Description
 
-This game was made using Python and Tkinter GUI toolkit. It consists of offline and online game modes. There are many customization options such as card design, window resolution, bot count and starting round size. 
+This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It consists of offline and online game modes. There are many customization options such as card design, window resolution, bot count and starting round size. 
 
 ---
 
