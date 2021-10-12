@@ -131,8 +131,38 @@ class contractWhistClient:
 
 
 
+    def setupOfflineGame(self, username):
+        bot_count       = ["1", "2", "3"]
+        start_round_size = [1,2,3,4,5,6,7,8,9,10]
+        round_size = 10
         
+        config_frame = tk.Frame(self.window, bg=self.colour_prime)
+        config_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
+
+        bots_label = Label(config_frame, text="Number of Bots:", bg=self.colour_prime, fg=self.colour_text)
+        bots_label.place(relx=0.5, rely=0.42, anchor="e")
+        bots_string = tk.StringVar(config_frame)
+        bots_string.set(bot_count[-1])
+
+        bots_option_menu = tk.OptionMenu(config_frame, bots_string, *bot_count)#, command= lambda x=None: setBotCount(bots_string.get()))
+        bots_option_menu.config(width=6, bg=self.colour_widget, fg=self.colour_text)
+        bots_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
+        bots_option_menu.place(relx=0.5, rely=0.42, anchor="w")
+
+        card_count_label = Label(config_frame, text="Starting amount of cards:", bg=self.colour_prime, fg=self.colour_text)
+        card_count_label.place(relx=0.5, rely=0.48, anchor="e")
+        card_count_string = tk.StringVar(config_frame)
+        card_count_string.set(round_size)
+        card_count_option_menu = tk.OptionMenu(config_frame, card_count_string, *start_round_size)
+        card_count_option_menu.config(width=6, bg=self.colour_widget, fg=self.colour_text)
+        card_count_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
+        card_count_option_menu.place(relx=0.5, rely=0.48, anchor="w")
+
+        start_button = Button(config_frame, text="Start", width=8, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()))
+        start_button.place(relx=0.5, rely=0.7, anchor="center")
         
+        home_button = Button(config_frame, text="Back", width=8, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: config_frame.destroy())
+        home_button.place(relx=0.02, rely=0.02, anchor="nw")
 
 
     def startOfflineGame(self, username, bot_count, start_round_size, col_scheme):
