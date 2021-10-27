@@ -128,7 +128,12 @@ class contractWhistClient:
         #config_button.place(relx=0.01, rely=0.99, anchor="sw")
 
 
+    def joinOnlineGame(self):
+        print("join online game")
+        lobby_frame = tk.Frame(self.window, bg=self.colour_prime).place(relwidth=1, relheight=1, relx=0, rely=0)
 
+        home_button = Button(lobby_frame, text="Back", width=8, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: self.makeHomePage())
+        home_button.place(relx=0.01, rely=0.01, anchor="nw")
 
 
     def setupOfflineGame(self, username):
