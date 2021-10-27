@@ -42,7 +42,7 @@ This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It c
 ### What I Learned
 
 - Refreshed my knowledge of class programming in python.
-- Refined my utilisaion of static methods and internal class methods.
+- Refined my utilisation of static methods and internal class methods.
 - Improved my frame managment and optimisation skills with Tkinter GUI toolkit.
 
 [Back To The Top](#contract-whist-multiplayer-client)
