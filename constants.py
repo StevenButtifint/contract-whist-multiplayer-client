@@ -1,0 +1,9 @@
+
+
+#INTERFACE CONSTANTS
+
+WINDOW_SIZES = ["800x600", "900x700", "1200x700", "1600x1100", "2100x1300"]
+
+CARD_PACKS_LOC = "res/card_packs"
+
+
