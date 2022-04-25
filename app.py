@@ -201,8 +201,7 @@ class contractWhistClient:
 
 
 if __name__ == "__main__":
-    root = Tk()
-    window = contractWhistClient(root)
-    window.makeHomePage()
-    #root.mainloop()
+    root = tk.Tk()
+    contractWhistClient(root)
+
 
