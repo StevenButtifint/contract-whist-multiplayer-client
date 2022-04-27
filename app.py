@@ -199,6 +199,16 @@ class contractWhistClient:
 
 
 
+                         
+    @staticmethod
+    def _makeOptionMenu(frame, displayed, choices, width, bg, fg, rx, ry, anchor, command):
+        optionMenu = tk.OptionMenu(frame, displayed, *choices, command=command)
+        optionMenu.config(width=width, bg=bg, fg=fg)
+        optionMenu["menu"].config(bg=bg, fg=fg)
+        optionMenu.place(relx=rx, rely=ry, anchor=anchor)
+        return optionMenu
+
+
     @staticmethod
     def placeImage(frame, directory, relx, rely, w, h, bg):
         image = Image.open(directory)   
