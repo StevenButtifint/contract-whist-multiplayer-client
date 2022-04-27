@@ -19,7 +19,6 @@ class contractWhistClient:
         self.window.resizable(width=False, height=False)
         self.window.title = "Contract Whist Client - 1.0"
         self.window.iconbitmap("res/images/icon.ico")
-        self.window_sizes = ["800x600", "900x700", "1200x700", "1600x1100", "2100x1300"]
 
         self.colour_schemes = ["Default", "test"]
 
@@ -35,15 +34,15 @@ class contractWhistClient:
                            "ykh", "yks", "zac", "zad", "zah", "zas"]
 
         self._resize(self.window, self.window_sizes[0])
+        self._resize(self.window, WINDOW_SIZES[0])
         
         self.user_config = UserConfig()
 
 
     @staticmethod
     def _resize(frame, dimentions):
-        dimentions = str(dimentions).split("x")
-        w, h = int(dimentions[0]), int(dimentions[1])
-        frame.geometry(f"{w}x{h}")
+        dimentions = dimentions.split("x")
+        frame.geometry(str(int(dimentions[0]))+"x"+str(int(dimentions[1])))
 
     
     def updateColourScheme(self, home_frame, colour_string):
