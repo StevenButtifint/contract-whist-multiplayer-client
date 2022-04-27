@@ -199,6 +199,15 @@ class contractWhistClient:
 
 
 
+    @staticmethod
+    def placeImage(frame, directory, relx, rely, w, h, bg):
+        image = Image.open(directory)   
+        image = image.resize((w, h))
+        img = ImageTk.PhotoImage(image)   
+        label = tk.Label(frame, image=img, bg=bg)
+        label.image = img
+        label.place(relx=relx, rely=rely, anchor="center")
+        
 
 if __name__ == "__main__":
     root = tk.Tk()
