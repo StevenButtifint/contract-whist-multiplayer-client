@@ -10,6 +10,7 @@ from APIs.sheets_API import getSheetData, setSheetData
 
 from res.classes.UserConfig import UserConfig
 from res.classes.OfflineGame import OfflineGame
+from constants import *
 
 
 class contractWhistClient:
