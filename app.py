@@ -1,6 +1,7 @@
 import tkinter as tk
 import random
 import threading
+import os
 
 
 from tkinter import Label, Button, PhotoImage, StringVar, Entry, Tk
@@ -20,8 +21,6 @@ class contractWhistClient:
         self.window.title = "Contract Whist Client - 1.0"
         self.window.iconbitmap("res/images/icon.ico")
 
-        self.colour_schemes = ["Default", "test"]
-
         self.colour_prime   = "PaleGreen1"
         self.colour_second  = "PaleGreen2"
         self.colour_text    = "DarkGreen"
@@ -36,8 +35,19 @@ class contractWhistClient:
         self._resize(self.window, self.window_sizes[0])
         self._resize(self.window, WINDOW_SIZES[0])
         
+        self.colour_schemes = self._getColourSchemes()
+
         self.user_config = UserConfig()
 
+    @staticmethod
+    def _getColourSchemes():
+        colour_schemes = []
+        for file in os.listdir(CARD_PACKS_LOC):
+            d = os.path.join(CARD_PACKS_LOC, file)
+            if os.path.isdir(d):
+                colour_schemes.append(os.path.basename(d))
+        return colour_schemes
+    
 
     @staticmethod
     def _resize(frame, dimentions):
