@@ -209,6 +209,13 @@ class contractWhistClient:
 
 
 
+
+    @staticmethod
+    def _makeStringVar(frame, default_value):
+        stringVar = tk.StringVar(frame)
+        stringVar.set(default_value)
+        return stringVar
+
                          
     @staticmethod
     def _makeOptionMenu(frame, displayed, choices, width, bg, fg, rx, ry, anchor, command):
