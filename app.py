@@ -211,6 +211,13 @@ class contractWhistClient:
 
 
     @staticmethod
+    def _makeButton(frame, text, width, bg, fg, rx, ry, anchor, command):
+        button = Button(frame, text=text, width=width, bg=bg, fg=fg, command=command)
+        button.place(relx=rx, rely=ry, anchor=anchor)
+        return button
+
+
+    @staticmethod
     def _makeStringVar(frame, default_value):
         stringVar = tk.StringVar(frame)
         stringVar.set(default_value)
