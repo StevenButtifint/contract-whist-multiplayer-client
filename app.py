@@ -206,6 +206,11 @@ class contractWhistClient:
 
 
 
+    @staticmethod    
+    def _makeFrame(frame, bg, rw, rh, rx, ry):
+        new_frame = tk.Frame(frame, bg=bg)
+        new_frame.place(relwidth=rw, relheight=rh, relx=rx, rely=ry)
+        return new_frame
 
 
     @staticmethod
