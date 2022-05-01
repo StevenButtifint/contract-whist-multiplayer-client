@@ -75,8 +75,7 @@ class contractWhistClient:
 
 
     def makeHomePage(self):
-
-        home_frame = tk.Frame(self.window, bg=self.colour_prime).place(relwidth=1, relheight=1, relx=0, rely=0)
+        home_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
         self.window.update_idletasks()   
         
         username_label = Label(home_frame, text="Username:", bg=self.colour_prime, fg=self.colour_text)
