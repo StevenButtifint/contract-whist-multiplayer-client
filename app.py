@@ -38,6 +38,8 @@ class contractWhistClient:
         self.colour_schemes = self._getColourSchemes()
 
         self.user_config = UserConfig()
+        self.makeHomePage()
+
 
     @staticmethod
     def _getColourSchemes():
