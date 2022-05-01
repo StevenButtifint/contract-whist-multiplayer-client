@@ -74,16 +74,6 @@ class contractWhistClient:
         colour_string.set("Colour Scheme: " + str(colour_scheme))
 
 
-    @staticmethod
-    def placeImage(frame, directory, relx, rely, w, h):
-        image = Image.open(directory)   
-        image = image.resize((w, h))
-        img = ImageTk.PhotoImage(image)
-        label = Label(frame, image=img)
-        label.image = img
-        label.place(relx=relx, rely=rely, anchor="center")   
-
-
     def makeHomePage(self):
 
         home_frame = tk.Frame(self.window, bg=self.colour_prime).place(relwidth=1, relheight=1, relx=0, rely=0)
