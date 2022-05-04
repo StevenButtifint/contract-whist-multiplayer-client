@@ -79,20 +79,19 @@ class contractWhistClient:
     def makeHomePage(self):
         home_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
         self.window.update_idletasks()   
+
+        self._makeLabel(home_frame, "Username:", COLOUR_PRIME, COLOUR_TEXT, 0.46, 0.4, "e")
         
-        username_label = Label(home_frame, text="Username:", bg=self.colour_prime, fg=self.colour_text)
-        username_label.place(relx=0.46, rely=0.4, anchor="e")
         username = StringVar()
         username.trace("w", lambda name, index, mode, username=username: self.user_config.setUsername(username.get()))
         username_entry = Entry(home_frame, width=18, bg=self.colour_widget, fg=self.colour_text, textvariable=username)
         username_entry.place(relx=0.48, rely=0.4, anchor="w")
         username_entry.insert(0, self.user_config.getUsername())
 
-        identifier_label = Label(home_frame, text="Identifier:", bg=self.colour_prime, fg=self.colour_text)
-        identifier_label.place(relx=0.46, rely=0.45, anchor="e")
-        identifier_code_label = Label(home_frame, text=self.user_config.getIdentifier(), bg=self.colour_prime, fg=self.colour_text)
-        identifier_code_label.place(relx=0.48, rely=0.45, anchor="w")
-        #identifier_entry = tk.Entry(home_frame, width=18, bg=COL_WIDGET, fg=COL_TEXT)
+        self._makeLabel(home_frame, "Identifier:", COLOUR_PRIME, COLOUR_TEXT, 0.46, 0.45, "e")
+        self._makeLabel(home_frame, self.user_config.getIdentifier(), COLOUR_PRIME, COLOUR_TEXT, 0.48, 0.45, "w")
+
+        #identifier_entry = tk.Entry(home_frame, width=18, bg=COLOUR_WIDGET, fg=COLOUR_TEXT)
         #identifier_entry.config(state="disabled")
         #identifier_entry.place(relx=0.48, rely=0.45, anchor="w")
         #identifier_entry.insert(0, self.user_config.getIdentifier())
