@@ -103,13 +103,11 @@ class contractWhistClient:
         self.showColourScheme(home_frame, colour_string)
 
         resolution = str(root.winfo_width()) + "x" + str(root.winfo_height())
-        
-        resize_string = tk.StringVar(home_frame)
-        resize_string.set("Resolution: " + resolution)
         resize_option_menu = tk.OptionMenu(home_frame, resize_string, *self.window_sizes, command= lambda x=None: self.updateLayout(resize_string.get()))
         resize_option_menu.config(width=21, bg=self.colour_widget, fg=self.colour_text)
         resize_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
         resize_option_menu.place(relx=0.5, rely=0.59, anchor="center")
+        resize_string = self._makeStringVar(home_frame, "Resolution: " + resolution)
 
         self._makeButton(home_frame, "Offline With Bots", 15, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.7, "center", lambda: self.setupOfflineGame(username_entry.get()))
         self._makeButton(home_frame, "Multiplayer", 15, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.75, "center", lambda: self.joinOnlineGame())
