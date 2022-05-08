@@ -84,7 +84,7 @@ class contractWhistClient:
         
         username = StringVar()
         username.trace("w", lambda name, index, mode, username=username: self.user_config.setUsername(username.get()))
-        username_entry = Entry(home_frame, width=18, bg=self.colour_widget, fg=self.colour_text, textvariable=username)
+        username_entry = Entry(home_frame, width=18, bg=COLOUR_WIDGET, fg=COLOUR_TEXT, textvariable=username)
         username_entry.place(relx=0.48, rely=0.4, anchor="w")
         username_entry.insert(0, self.user_config.getUsername())
 
