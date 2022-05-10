@@ -148,9 +148,10 @@ class contractWhistClient:
 
         start_button = Button(config_frame, text="Start", width=8, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()))
         start_button.place(relx=0.5, rely=0.7, anchor="center")
-        
-        home_button = Button(config_frame, text="Back", width=8, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: config_frame.destroy())
-        home_button.place(relx=0.02, rely=0.02, anchor="nw")
+        self._makeButton(config_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.02, 0.02, "nw", lambda: config_frame.destroy())
+
+
+
 
 
     def startOfflineGame(self, username, bot_count, start_round_size, col_scheme):
