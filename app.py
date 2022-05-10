@@ -114,7 +114,7 @@ class contractWhistClient:
 
     def joinOnlineGame(self):
         print("join online game")
-        lobby_frame = tk.Frame(self.window, bg=self.colour_prime).place(relwidth=1, relheight=1, relx=0, rely=0)
+        lobby_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
         self._makeButton(lobby_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.01, 0.01, "nw", lambda: lobby_frame.destroy())#self.makeHomePage())
 
 
