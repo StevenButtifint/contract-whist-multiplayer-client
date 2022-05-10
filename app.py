@@ -146,8 +146,7 @@ class contractWhistClient:
         card_count_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
         card_count_option_menu.place(relx=0.5, rely=0.48, anchor="w")
 
-        start_button = Button(config_frame, text="Start", width=8, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()))
-        start_button.place(relx=0.5, rely=0.7, anchor="center")
+        self._makeButton(config_frame, "Start", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.7, "center", lambda: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()))
         self._makeButton(config_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.02, 0.02, "nw", lambda: config_frame.destroy())
 
 
