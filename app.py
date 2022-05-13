@@ -157,8 +157,7 @@ class contractWhistClient:
         print("offline with bots")
 
         #frame for all to go in instead of root to destroy if back to main menu or game over
-        offline_frame = tk.Frame(self.window, bg=self.colour_prime)
-        offline_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
+        offline_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
 
         bot_names = ["Leon", "Napoleon", "Jesse", "Mr. Blonde", "Falcon", "Vulture", "Banshee", "Nova",
                      "Voyager", "Zoe", "Arya", "Lab Rat", "Katie"]
