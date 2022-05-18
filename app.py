@@ -127,8 +127,6 @@ class contractWhistClient:
         config_frame = tk.Frame(self.window, bg=self.colour_prime)
         config_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
 
-        bots_label = Label(config_frame, text="Number of Bots:", bg=self.colour_prime, fg=self.colour_text)
-        bots_label.place(relx=0.5, rely=0.42, anchor="e")
         bots_string = tk.StringVar(config_frame)
         bots_string.set(bot_count[-1])
 
@@ -145,6 +143,7 @@ class contractWhistClient:
         card_count_option_menu.config(width=6, bg=self.colour_widget, fg=self.colour_text)
         card_count_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
         card_count_option_menu.place(relx=0.5, rely=0.48, anchor="w")
+        self._makeLabel(config_frame, "Number of Bots:", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.42, "e")
 
         self._makeButton(config_frame, "Start", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.7, "center", lambda: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()))
         self._makeButton(config_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.02, 0.02, "nw", lambda: config_frame.destroy())
