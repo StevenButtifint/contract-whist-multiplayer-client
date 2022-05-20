@@ -127,16 +127,13 @@ class contractWhistClient:
         config_frame = tk.Frame(self.window, bg=self.colour_prime)
         config_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
 
-        card_count_option_menu = tk.OptionMenu(config_frame, card_count_string, *start_round_size)
-        card_count_option_menu.config(width=6, bg=self.colour_widget, fg=self.colour_text)
-        card_count_option_menu["menu"].config(bg=self.colour_widget, fg=self.colour_text)
-        card_count_option_menu.place(relx=0.5, rely=0.48, anchor="w")
         self._makeLabel(config_frame, "Number of Bots:", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.42, "e")
         bots_string = self._makeStringVar(config_frame, bot_count[-1])
         bots_option_menu = self._makeOptionMenu(config_frame, bots_string, bot_count, 6, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.42, "w", None)# x=None: setBotCount(bots_string.get()))
 
         self._makeLabel(config_frame, "Starting amount of cards:", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.48, "e")
         card_count_string = self._makeStringVar(config_frame, round_size)
+        card_count_option_menu = self._makeOptionMenu(config_frame, card_count_string, start_round_size, 6, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.48, "w", None)
 
         self._makeButton(config_frame, "Start", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.7, "center", lambda: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()))
         self._makeButton(config_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.02, 0.02, "nw", lambda: config_frame.destroy())
