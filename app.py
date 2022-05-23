@@ -160,9 +160,8 @@ class contractWhistClient:
             pick = random.randint(0, len(bot_names)-1)
             player_names.append(bot_names[pick])
             del bot_names[pick]
+        self._makeButton(offline_frame, "End Game", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.8, 0.025, "center", lambda: offline_frame.destroy())
 
-        home_button = Button(offline_frame, text="End Game", width=8, bg=self.colour_widget, fg=self.colour_text, command= lambda x=None: createHomePage(userConfig))
-        home_button.place(relx=0.8, rely=0.025, anchor="center")
 
         offline_game = OfflineGame(offline_frame, player_names, col_scheme, start_round_size, self.cards_deck)
         offline_game.offlineStart()
