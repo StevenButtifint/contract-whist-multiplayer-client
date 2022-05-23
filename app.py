@@ -124,7 +124,7 @@ class contractWhistClient:
         start_round_size = [1,2,3,4,5,6,7,8,9,10]
         round_size = 10
         
-        config_frame = tk.Frame(self.window, bg=self.colour_prime)
+        config_frame = tk.Frame(self.window, bg=COLOUR_PRIME)
         config_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
 
         self._makeLabel(config_frame, "Number of Bots:", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.42, "e")
