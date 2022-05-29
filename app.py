@@ -150,13 +150,6 @@ class contractWhistClient:
         loading_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
         self._makeLabel(loading_frame, "Loading...", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.5, "center")
 
-        player_names = [username]
-
-        #pick random names for bots
-        for bot in range(bot_count):
-            pick = random.randint(0, len(bot_names)-1)
-            player_names.append(bot_names[pick])
-            del bot_names[pick]
         self._makeButton(offline_frame, "End Game", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.8, 0.025, "center", lambda: offline_frame.destroy())
 
 
