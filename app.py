@@ -20,11 +20,6 @@ class contractWhistClient:
         self.window.resizable(width=False, height=False)
         self.window.title = "Contract Whist Client - 1.0"
         self.window.iconbitmap("res/images/icon.ico")
-
-        self.colour_prime   = "PaleGreen1"
-        self.colour_second  = "PaleGreen2"
-        self.colour_text    = "DarkGreen"
-        self.colour_widget  = "DarkSeaGreen2"
         self._resize(self.window, WINDOW_SIZES[0])
         
         self.colour_schemes = self._getColourSchemes()
