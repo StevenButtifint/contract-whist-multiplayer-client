@@ -25,14 +25,6 @@ class contractWhistClient:
         self.colour_second  = "PaleGreen2"
         self.colour_text    = "DarkGreen"
         self.colour_widget  = "DarkSeaGreen2"
-
-        self.cards_deck = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s", "4c", "4d", "4h", "4s",
-                           "5c", "5d", "5h", "5s", "6c", "6d", "6h", "6s", "7c", "7d", "7h", "7s",
-                           "8c", "8d", "8h", "8s", "9c", "9d", "9h", "9s", "vc", "vd", "vh", "vs",
-                           "wjc", "wjd", "wjh", "wjs", "xqc", "xqd", "xqh", "xqs", "ykc", "ykd",
-                           "ykh", "yks", "zac", "zad", "zah", "zas"]
-
-        self._resize(self.window, self.window_sizes[0])
         self._resize(self.window, WINDOW_SIZES[0])
         
         self.colour_schemes = self._getColourSchemes()
@@ -116,7 +108,6 @@ class contractWhistClient:
         print("join online game")
         lobby_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
         self._makeButton(lobby_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.01, 0.01, "nw", lambda: lobby_frame.destroy())#self.makeHomePage())
-
 
 
     def setupOfflineGame(self, username):
