@@ -145,11 +145,8 @@ class contractWhistClient:
     def startOfflineGame(self, username, bot_count, start_round_size, col_scheme):
         print("offline with bots")
 
-        #frame for all to go in instead of root to destroy if back to main menu or game over
         offline_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
 
-        bot_names = ["Leon", "Napoleon", "Jesse", "Mr. Blonde", "Falcon", "Vulture", "Banshee", "Nova",
-                     "Voyager", "Zoe", "Arya", "Lab Rat", "Katie"]
         loading_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
         self._makeLabel(loading_frame, "Loading...", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.5, "center")
 
