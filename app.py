@@ -19,7 +19,7 @@ class contractWhistClient:
         self.window = parent
         self.window.resizable(width=False, height=False)
         self.window.title = "Contract Whist Client - 1.0"
-        self.window.iconbitmap("res/images/icon.ico")
+        self.window.iconbitmap("res/icon.ico")
         self._resize(self.window, WINDOW_SIZES[0])
         
         self.colour_schemes = self._getColourSchemes()
