@@ -25,3 +25,7 @@ CARDS_DECK = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s", "4c", "4d", "4h", 
 BOT_NAMES = ["Leon", "Napoleon", "Jesse", "Mr. Blonde", "Falcon", "Vulture", "Banshee",
              "Nova", "Voyager", "Zoe", "Arya", "Lab Rat", "Katie"]
 
+SUIT_LETTERS = ["h", "s", "d", "c"]
+
+SUIT_NAMES = ["Hearts", "Spades", "Dimonds", "Clubs"]
+
