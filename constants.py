@@ -29,3 +29,4 @@ SUIT_LETTERS = ["h", "s", "d", "c"]
 
 SUIT_NAMES = ["Hearts", "Spades", "Dimonds", "Clubs"]
 
+CARD_ORDER = ["2", "3", "4", "5", "6", "7", "8", "9", "v", "w", "x", "y", "z"]
