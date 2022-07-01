@@ -17,3 +17,13 @@ def makeLabel(frame, text, bg, fg, rx, ry, anchor):
     return label
 
 
+
+
+def makeEntry(frame, width, bg, fg, textvariable, rx, ry, anchor):
+    entry = tk.Entry(frame, width=width, bg=bg, fg=fg, textvariable=textvariable)
+    entry.place(relx=rx, rely=ry, anchor=anchor)
+    return entry
+
+
+
+    
