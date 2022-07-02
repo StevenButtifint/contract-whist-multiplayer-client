@@ -19,12 +19,12 @@ class contractWhistClient:
     def __init__(self, parent):
         self.window = parent
         self.window.resizable(width=False, height=False)
-        self.window.title = "Contract Whist Client - 1.0"
+        self.window.title("Contract Whist Client - 1.2")
         self.window.iconbitmap("res/icon.ico")
-        self._resize(self.window, WINDOW_SIZES[0])
+        self.windowSize = list(WINDOW_SIZES.keys())[0]
+        self._resize(self.window, self.windowSize)
         
         self.colour_schemes = self._getColourSchemes()
-
         self.user_config = UserConfig()
         self.makeHomePage()
 
@@ -39,10 +39,10 @@ class contractWhistClient:
         return colour_schemes
     
 
-    @staticmethod
-    def _resize(frame, dimentions):
-        dimentions = dimentions.split("x")
-        frame.geometry(str(int(dimentions[0]))+"x"+str(int(dimentions[1])))
+    def _resize(self, frame, dimentions):
+        w, h = WINDOW_SIZES[dimentions]
+        frame.geometry(str(w)+"x"+str(h))
+        self.windowSize = dimentions
 
     
     def updateColourScheme(self, home_frame, colour_string):
@@ -52,7 +52,7 @@ class contractWhistClient:
 
     def updateLayout(self, dimentions):
         self._resize(self.window, dimentions)
-        self.makeHomePage()
+        self.makeSettingsPage()
     
 
     def showColourScheme(self, frame, colour_string):
