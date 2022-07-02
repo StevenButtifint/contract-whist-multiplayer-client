@@ -9,9 +9,10 @@ from PIL import ImageTk, Image
 
 from APIs.sheets_API import getSheetData, setSheetData
 
-from res.classes.UserConfig import UserConfig
-from res.classes.OfflineGame import OfflineGame
+from UserConfig import UserConfig
+from OfflineGame import OfflineGame
 from constants import *
+from interface import *
 
 
 class contractWhistClient:
