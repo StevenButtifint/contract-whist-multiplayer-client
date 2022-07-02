@@ -65,25 +65,19 @@ class contractWhistClient:
 
 
     def makeHomePage(self):
-        home_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
-        self.window.update_idletasks()   
-
-        self._makeLabel(home_frame, "Username:", COLOUR_PRIME, COLOUR_TEXT, 0.46, 0.4, "e")
-        
         username = StringVar()
         username.trace("w", lambda name, index, mode, username=username: self.user_config.setUsername(username.get()))
         username_entry = Entry(home_frame, width=18, bg=COLOUR_WIDGET, fg=COLOUR_TEXT, textvariable=username)
         username_entry.place(relx=0.48, rely=0.4, anchor="w")
         username_entry.insert(0, self.user_config.getUsername())
+        home_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
+        self.window.update_idletasks()
+        canvas, photoimage = placeImage(home_frame, "res/wallpaper/home.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")       
 
         self._makeLabel(home_frame, "Identifier:", COLOUR_PRIME, COLOUR_TEXT, 0.46, 0.45, "e")
         self._makeLabel(home_frame, self.user_config.getIdentifier(), COLOUR_PRIME, COLOUR_TEXT, 0.48, 0.45, "w")
+        tk.mainloop()
 
-        #identifier_entry = tk.Entry(home_frame, width=18, bg=COLOUR_WIDGET, fg=COLOUR_TEXT)
-        #identifier_entry.config(state="disabled")
-        #identifier_entry.place(relx=0.48, rely=0.45, anchor="w")
-        #identifier_entry.insert(0, self.user_config.getIdentifier())
-        #identifier_entry.config(state="disabled")
 
         colour_string = self._makeStringVar(home_frame, self.user_config.getColourScheme())
         colour_option_menu = self._makeOptionMenu(home_frame, colour_string, self.colour_schemes, 21, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.52, "center", lambda x=None: self.updateColourScheme(home_frame, colour_string))
