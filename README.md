@@ -1,7 +1,7 @@
 # Contract Whist Multiplayer Client
 
 ### Demo Video
-![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/images/screenshots/offline_demo.gif?raw=true)
+![](https://github.com/stevenbuttifint/contract-whist-multiplayer-client/blob/main/res/screenshots/offline_demo.gif?raw=true)
 
 ---
 
