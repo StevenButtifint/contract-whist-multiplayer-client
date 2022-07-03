@@ -32,8 +32,8 @@ class contractWhistClient:
     @staticmethod
     def _getColourSchemes():
         colour_schemes = []
-        for file in os.listdir(CARD_PACKS_LOC):
-            d = os.path.join(CARD_PACKS_LOC, file)
+        for file in os.listdir(CARD_PACKS_DIR):
+            d = os.path.join(CARD_PACKS_DIR, file)
             if os.path.isdir(d):
                 colour_schemes.append(os.path.basename(d))
         return colour_schemes
@@ -59,16 +59,15 @@ class contractWhistClient:
         colour_scheme = colour_string.get()
         h = root.winfo_height()//2
         w = int(h*0.6887)
-        self.placeImage(frame, "res/card_packs/" + colour_scheme + "/zas.png", 0.8, 0.5, w, h, COLOUR_PRIME)
-        self.placeImage(frame, "res/card_packs/" + colour_scheme + "/bk.png", 0.2, 0.5, w, h, COLOUR_PRIME)
+        self.placeImage(frame, CARD_PACKS_DIR + colour_scheme + "/zas.png", 0.8, 0.5, w, h, COLOUR_PRIME)
+        self.placeImage(frame, CARD_PACKS_DIR + colour_scheme + "/bk.png", 0.2, 0.5, w, h, COLOUR_PRIME)
         colour_string.set("Colour Scheme: " + str(colour_scheme))
 
 
     def makeHomePage(self):
         home_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
         self.window.update_idletasks()
-        canvas, photoimage = placeImage(home_frame, "res/wallpaper/home.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")       
-
+        canvas, photoimage = placeImage(home_frame, TEXTURES_DIR+"home.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
         makeButton(home_frame, "Offline With Bots", 15, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.55, "center", lambda: self.setupOfflineGame("You"), 16)       
         makeButton(home_frame, "Online Multiplayer", 15, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.65, "center", lambda: self.makeMultiplayerPage(), 16)
         makeButton(home_frame, "Options", 15, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.75, "center", lambda: self.makeSettingsPage(), 16)  

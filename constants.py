@@ -8,7 +8,11 @@ WINDOW_SIZES = {"900x506" : [900, 506],
                 "1600x1100":[1600, 1100],
                 "2100x1300":[2100, 1300]}
 
-CARD_PACKS_LOC = "res/card_packs"
+
+#DIRECTORIES
+CARD_PACKS_DIR = "res/card_packs/"
+TEXTURES_DIR = "res/textures/"
+CHAR_ICONS_DIR = "res/characters/"
 
 
 #COLOURS
