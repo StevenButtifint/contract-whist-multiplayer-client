@@ -14,14 +14,14 @@
 
 ### Description
 
-This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It consists of offline and online game modes. There are many customization options such as card design, window resolution, bot count and starting round size. 
+This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It consists of offline and online game modes. There are many customization options such as card design, window resolution, bot count, bot playstyle and starting round size. 
 
 ---
 
 ### How To Play
 
 ##### Game Rules
-- Player with the most points at the end wins.
+- Player with the most points at the end of all rounds wins.
 - Cards are ranked A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 (top to bottom).
 - Start of each round players predict how many rounds they will win.
 - If players get their prediction correct they gain 10 points.
@@ -30,6 +30,7 @@ This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It c
 
 ##### Offline Play
 - Pick the number of bots to play againts.
+- Pick the playstyle of the bots
 - Pick the size of the starting round.
 - Use "Peek" button to view bot cards.
 
@@ -43,6 +44,7 @@ This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It c
 
 - Refreshed my knowledge of class programming in python.
 - Refined my utilisation of static methods and internal class methods.
+- Improved my pythonic modular approach to projects to allow them to scale easier.
 - Improved my frame managment and optimisation skills with Tkinter GUI toolkit.
 
 [Back To The Top](#contract-whist-multiplayer-client)
