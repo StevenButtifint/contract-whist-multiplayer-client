@@ -1,5 +1,4 @@
-APIs/keys
-APIs/__pycache__
-res/images/icons
-res/images/card_packs
 res/classes/__pycache__
+__pycache__
+.gitignore
+keys
