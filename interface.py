@@ -18,6 +18,14 @@ def makeLabel(frame, text, bg, fg, rx, ry, anchor, size):
     return label
 
 
+def makeButton(frame, text, width, bg, fg, rx, ry, anchor, command, size):
+    button = tk.Button(frame, text=text, width=width, bg=bg, fg=fg, command=command)
+    button['font'] = font.Font(family='Helvetica', size=size)
+    button['borderwidth'] = 2
+    button.place(relx=rx, rely=ry, anchor=anchor)
+    return button
+
+
 
 
 def makeEntry(frame, width, bg, fg, textvariable, rx, ry, anchor):
