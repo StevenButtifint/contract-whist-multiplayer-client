@@ -27,11 +27,16 @@ CARDS_DECK = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s", "4c", "4d", "4h", 
               "wjc", "wjd", "wjh", "wjs", "xqc", "xqd", "xqh", "xqs", "ykc", "ykd",
               "ykh", "yks", "zac", "zad", "zah", "zas"]
 
-BOT_NAMES = ["Leon", "Napoleon", "Jesse", "Mr. Blonde", "Falcon", "Vulture", "Banshee",
-             "Nova", "Voyager", "Zoe", "Arya", "Lab Rat", "Katie"]
+BOT_NAMES = ["Leon", "Napoleon", "Jesse", "Dodo", "Brim", "Banshee",
+             "Nova", "Voyager", "Zoe", "Arya", "Lab Rat"]
 
-SUIT_LETTERS = ["h", "s", "d", "c"]
-
-SUIT_NAMES = ["Hearts", "Spades", "Dimonds", "Clubs"]
 
 CARD_ORDER = ["2", "3", "4", "5", "6", "7", "8", "9", "v", "w", "x", "y", "z"]
+SUIT_LETTERS = ["h", "s", "d", "c"]
+SUIT_NAMES = ["Hearts", "Spades", "Dimonds", "Clubs"]
+
+
+#ERROR CODES
+L01 = "Lobby code is invalid."
+L02 = "Lobby is full."
+
