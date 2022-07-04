@@ -13,11 +13,17 @@ CHAR_ICONS_DIR = "res/characters/"
 
 
 #COLOURS
-COLOUR_PRIME = "PaleGreen1"
-COLOUR_SECOND = "PaleGreen2"
 COLOUR_TEXT = "black"
 COLOUR_WIDGET = "DarkSeaGreen2"
-COLOUR_CENTER = "forest green"
+COLOUR_PRIME = "black"
+COLOUR_SECOND = "red"
+COLOUR_TEXT_L = "white"
+COLOUR_TEXT_D = "Black"
+COLOUR_WIDGET_D = "#494080"
+COLOUR_WIDGET_L = "#958aff"
+COLOUR_CENTER = "#494080"
+COLOUR_ERROR = "red"
+COLOUR_BUTTON = "#958aff"
 
 
 #OFFLINE CONSTANTS
