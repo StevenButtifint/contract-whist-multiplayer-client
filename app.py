@@ -98,6 +98,7 @@ class contractWhistClient:
         bot_count       = ["1", "2", "3"]
         start_round_size = [1,2,3,4,5,6,7,8,9,10]
         round_size = 10
+        makeLabel(lobby_frame, "Online Multiplayer", "black", COLOUR_BUTTON, 0.5, 0.1, "center", 20)
         
         config_frame = tk.Frame(self.window, bg=COLOUR_PRIME)
         config_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
@@ -139,6 +140,7 @@ class contractWhistClient:
         new_frame.place(relwidth=rw, relheight=rh, relx=rx, rely=ry)
         return new_frame
 
+        makeLabel(config_frame, "Offline With Bots", "black", COLOUR_BUTTON, 0.5, 0.1, "center", 20)
 
     @staticmethod
     def _makeLabel(frame, text, bg, fg, rx, ry, anchor):
