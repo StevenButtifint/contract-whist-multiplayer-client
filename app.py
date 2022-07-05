@@ -107,6 +107,18 @@ class contractWhistClient:
         canvas, photoimage = self.showPlayerIcon(lobby_frame)
         makeButton(lobby_frame, "Change Icon", 10, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.48, "center", lambda: self.showPlayerIcon(lobby_frame),9)
         
+        makeLabel(lobby_frame, "Username:", "black", COLOUR_BUTTON, 0.5, 0.55, "e", 12)
+        username = tk.StringVar()
+        username.trace("w", lambda name, index, mode, username=username: self.user_config.setUsername(username.get()))
+        username_entry = makeEntry(lobby_frame, 18, COLOUR_BUTTON, COLOUR_TEXT_D, username, 0.5, 0.55, "w")
+        username_entry.insert(0, self.user_config.getUsername())
+        makeLabel(lobby_frame, "Lobby Code:", "black", COLOUR_BUTTON, 0.5, 0.6, "e", 12)
+        lobby_entry = makeEntry(lobby_frame, 18, COLOUR_BUTTON, COLOUR_TEXT_D, "", 0.5, 0.6, "w")
+
+        notice = makeLabel(lobby_frame, "", "black", COLOUR_ERROR, 0.5, 0.8, "center", 12)
+        makeButton(lobby_frame, "Back", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.49, 0.7, "ne", lambda: lobby_frame.destroy(), 10)
+        makeButton(lobby_frame, "Join", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.51, 0.7, "nw", lambda: self.checkOnlineLobby(notice, lobby_entry.get()), 10)
+        tk.mainloop()
 
 
 
