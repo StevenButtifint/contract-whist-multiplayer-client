@@ -36,10 +36,17 @@ CARDS_DECK = ["2c", "2d", "2h", "2s", "3c", "3d", "3h", "3s", "4c", "4d", "4h", 
 BOT_NAMES = ["Leon", "Napoleon", "Jesse", "Dodo", "Brim", "Banshee",
              "Nova", "Voyager", "Zoe", "Arya", "Lab Rat"]
 
+PLAYSTYLE_DESC = {"Potoo" : "Plays the game legitimately\n but doesnt know how to play.",
+                  "Falcon" : "Plays aggressively to win as\n many rounds as it can regardless of predicts.",
+                  "Raven" : "Plays tactically based on past\n events and its current situation.",
+                  "Random" : "Random playstyle will be selected."}
 
 CARD_ORDER = ["2", "3", "4", "5", "6", "7", "8", "9", "v", "w", "x", "y", "z"]
+BOT_PLAYSTYLE = ["Potoo", "Falcon", "Raven", "Random"]
 SUIT_LETTERS = ["h", "s", "d", "c"]
 SUIT_NAMES = ["Hearts", "Spades", "Dimonds", "Clubs"]
+BOT_COUNT = [1, 2, 3]
+ROUND_SIZE = [1,2,3,4,5,6,7,8,9,10]
 
 
 #ERROR CODES
