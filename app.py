@@ -3,7 +3,6 @@ import random
 import threading
 import os
 
-
 from tkinter import Label, Button, PhotoImage, StringVar, Entry, Tk
 from PIL import ImageTk, Image
 
@@ -77,18 +76,23 @@ class contractWhistClient:
         tk.mainloop()
 
 
+    def makeSettingsPage(self):
+        try:
+            self.settings_frame.destroy()
+        except:
+            pass
+            
+        self.settings_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
+        canvas, photoimage = placeImage(self.settings_frame, TEXTURES_DIR+"background.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
+        resize_string = makeStringVar(self.settings_frame, self.windowSize)
+        resize_option_menu = makeOptionMenu(self.settings_frame, resize_string, list(WINDOW_SIZES.keys()), 21, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.59, "center", lambda x=None: self.updateLayout(resize_string.get()))
 
-        self.showColourScheme(home_frame, colour_string)
+        colour_string = makeStringVar(self.settings_frame, self.user_config.getColourScheme())
+        colour_option_menu = makeOptionMenu(self.settings_frame, colour_string, self.colour_schemes, 21, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.52, "center", lambda x=None: self.updateColourScheme(self.settings_frame, colour_string))
+        self.showColourScheme(self.settings_frame, colour_string)
 
-        resolution = str(root.winfo_width()) + "x" + str(root.winfo_height())
-        resize_string = self._makeStringVar(home_frame, "Resolution: " + resolution)
-        resize_option_menu = self._makeOptionMenu(home_frame, resize_string, WINDOW_SIZES, 21, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.59, "center", lambda x=None: self.updateLayout(resize_string.get()))
-
-        self._makeButton(home_frame, "Offline With Bots", 15, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.7, "center", lambda: self.setupOfflineGame(username_entry.get()))
-        self._makeButton(home_frame, "Multiplayer", 15, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.75, "center", lambda: self.joinOnlineGame())
-        self._makeButton(home_frame, "Exit", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.96, "center", lambda: quit())
-
-
+        makeButton(self.settings_frame, "Done", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.7, "center", lambda: self.settings_frame.destroy(), 12)        
+        tk.mainloop()
 
     def joinOnlineGame(self):
         print("join online game")
