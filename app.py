@@ -40,6 +40,8 @@ class contractWhistClient:
     
 
     def _resize(self, frame, dimentions):
+        try: self.settings_frame.destroy()
+        except: pass
         w, h = WINDOW_SIZES[dimentions]
         frame.geometry(str(w)+"x"+str(h))
         self.windowSize = dimentions
@@ -57,7 +59,7 @@ class contractWhistClient:
 
     def showColourScheme(self, frame, colour_string):
         colour_scheme = colour_string.get()
-        h = root.winfo_height()//2
+        h = WINDOW_SIZES[self.windowSize][1]//2
         w = int(h*0.6887)
         self.placeImage(frame, CARD_PACKS_DIR + colour_scheme + "/zas.png", 0.8, 0.5, w, h, COLOUR_PRIME)
         self.placeImage(frame, CARD_PACKS_DIR + colour_scheme + "/bk.png", 0.2, 0.5, w, h, COLOUR_PRIME)
