@@ -99,44 +99,18 @@ class contractWhistClient:
         lobby_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
         self._makeButton(lobby_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.01, 0.01, "nw", lambda: lobby_frame.destroy())#self.makeHomePage())
 
+    def makeMultiplayerPage(self):
+        lobby_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
+        canvasBG, photoimageBG = placeImage(lobby_frame, TEXTURES_DIR+"background2.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
 
-    def setupOfflineGame(self, username):
-        bot_count       = ["1", "2", "3"]
-        start_round_size = [1,2,3,4,5,6,7,8,9,10]
-        round_size = 10
         makeLabel(lobby_frame, "Online Multiplayer", "black", COLOUR_BUTTON, 0.5, 0.1, "center", 20)
+        canvas, photoimage = self.showPlayerIcon(lobby_frame)
+        makeButton(lobby_frame, "Change Icon", 10, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.48, "center", lambda: self.showPlayerIcon(lobby_frame),9)
         
-        config_frame = tk.Frame(self.window, bg=COLOUR_PRIME)
-        config_frame.place(relwidth=1, relheight=1, relx=0, rely=0)
-
-        self._makeLabel(config_frame, "Number of Bots:", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.42, "e")
-        bots_string = self._makeStringVar(config_frame, bot_count[-1])
-        bots_option_menu = self._makeOptionMenu(config_frame, bots_string, bot_count, 6, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.42, "w", None)# x=None: setBotCount(bots_string.get()))
-
-        self._makeLabel(config_frame, "Starting amount of cards:", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.48, "e")
-        card_count_string = self._makeStringVar(config_frame, round_size)
-        card_count_option_menu = self._makeOptionMenu(config_frame, card_count_string, start_round_size, 6, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.48, "w", None)
-
-        self._makeButton(config_frame, "Start", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.5, 0.7, "center", lambda: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()))
-        self._makeButton(config_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.02, 0.02, "nw", lambda: config_frame.destroy())
 
 
 
 
-
-    def startOfflineGame(self, username, bot_count, start_round_size, col_scheme):
-        print("offline with bots")
-
-        offline_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
-
-        loading_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
-        self._makeLabel(loading_frame, "Loading...", COLOUR_PRIME, COLOUR_TEXT, 0.5, 0.5, "center")
-
-        self._makeButton(offline_frame, "End Game", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.8, 0.025, "center", lambda: offline_frame.destroy())
-
-
-        offline_game = OfflineGame(offline_frame, player_names, col_scheme, start_round_size, self.cards_deck)
-        offline_game.offlineStart()
 
 
 
