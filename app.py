@@ -128,8 +128,16 @@ class contractWhistClient:
         new_frame = tk.Frame(frame, bg=bg)
         new_frame.place(relwidth=rw, relheight=rh, relx=rx, rely=ry)
         return new_frame
+    def setupOfflineGame(self, username):
+        config_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
+        canvasBG, photoimageBG = placeImage(config_frame, TEXTURES_DIR+"background2.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
 
         makeLabel(config_frame, "Offline With Bots", "black", COLOUR_BUTTON, 0.5, 0.1, "center", 20)
+        canvas, photoimage = placeImage(config_frame, TEXTURES_DIR+"bot_1.png", WINDOW_SIZES[self.windowSize][0]//7, WINDOW_SIZES[self.windowSize][1]//4, 0.5, 0.15, "n")
+        
+        makeLabel(config_frame, "Number of Bots:", "black", COLOUR_BUTTON, 0.5, 0.43, "e", 12)
+        bots_string = makeStringVar(config_frame, BOT_COUNT[-1])
+        bots_option_menu = makeOptionMenu(config_frame, bots_string, BOT_COUNT, 3, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.43, "w", None)
 
     @staticmethod
     def _makeLabel(frame, text, bg, fg, rx, ry, anchor):
