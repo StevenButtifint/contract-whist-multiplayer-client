@@ -144,7 +144,17 @@ class contractWhistClient:
         label = tk.Label(frame, text=text, bg=bg, fg=fg)
         label.place(relx=rx, rely=ry, anchor=anchor)
         return label
+        makeLabel(config_frame, "Playstyle description:", "black", COLOUR_BUTTON, 0.5, 0.55, "e", 12)
+        playstyle_desc = makeLabel(config_frame, "", "black", COLOUR_BUTTON, 0.5, 0.56, "w", 10)
+        
+        makeLabel(config_frame, "Bot playstyle:", "black", COLOUR_BUTTON, 0.5, 0.48, "e", 12)
+        playstyle_string = makeStringVar(config_frame, BOT_PLAYSTYLE[2])
+        playstyle_option_menu = makeOptionMenu(config_frame, playstyle_string, BOT_PLAYSTYLE, 6, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.48, "w", lambda x=None: self.showPlaystyleDesc(playstyle_desc, playstyle_string.get()))
+        self.showPlaystyleDesc(playstyle_desc, playstyle_string.get())
 
+        makeLabel(config_frame, "Starting amount of cards:", "black", COLOUR_BUTTON, 0.5, 0.66, "e", 12)
+        card_count_string = makeStringVar(config_frame, ROUND_SIZE[-1])
+        card_count_option_menu = makeOptionMenu(config_frame, card_count_string, ROUND_SIZE, 3, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.66, "w", None)
 
     @staticmethod
     def _makeButton(frame, text, width, bg, fg, rx, ry, anchor, command):
