@@ -139,11 +139,6 @@ class contractWhistClient:
         bots_string = makeStringVar(config_frame, BOT_COUNT[-1])
         bots_option_menu = makeOptionMenu(config_frame, bots_string, BOT_COUNT, 3, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.43, "w", None)
 
-    @staticmethod
-    def _makeLabel(frame, text, bg, fg, rx, ry, anchor):
-        label = tk.Label(frame, text=text, bg=bg, fg=fg)
-        label.place(relx=rx, rely=ry, anchor=anchor)
-        return label
         makeLabel(config_frame, "Playstyle description:", "black", COLOUR_BUTTON, 0.5, 0.55, "e", 12)
         playstyle_desc = makeLabel(config_frame, "", "black", COLOUR_BUTTON, 0.5, 0.56, "w", 10)
         
