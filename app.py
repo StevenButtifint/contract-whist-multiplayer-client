@@ -3,10 +3,7 @@ import random
 import threading
 import os
 
-from tkinter import Label, Button, PhotoImage, StringVar, Entry, Tk
 from PIL import ImageTk, Image
-
-from APIs.sheets_API import getSheetData, setSheetData
 
 from UserConfig import UserConfig
 from OfflineGame import OfflineGame
