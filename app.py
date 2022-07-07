@@ -91,10 +91,6 @@ class contractWhistClient:
         makeButton(self.settings_frame, "Done", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.7, "center", lambda: self.settings_frame.destroy(), 12)        
         tk.mainloop()
 
-    def joinOnlineGame(self):
-        print("join online game")
-        lobby_frame = self._makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0)
-        self._makeButton(lobby_frame, "Back", 8, COLOUR_WIDGET, COLOUR_TEXT, 0.01, 0.01, "nw", lambda: lobby_frame.destroy())#self.makeHomePage())
 
     def makeMultiplayerPage(self):
         lobby_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
