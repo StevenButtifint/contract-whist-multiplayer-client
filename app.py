@@ -142,11 +142,6 @@ class contractWhistClient:
         card_count_string = makeStringVar(config_frame, ROUND_SIZE[-1])
         card_count_option_menu = makeOptionMenu(config_frame, card_count_string, ROUND_SIZE, 3, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.66, "w", None)
 
-    @staticmethod
-    def _makeButton(frame, text, width, bg, fg, rx, ry, anchor, command):
-        button = Button(frame, text=text, width=width, bg=bg, fg=fg, command=command)
-        button.place(relx=rx, rely=ry, anchor=anchor)
-        return button
 
 
     @staticmethod
