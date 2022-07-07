@@ -142,6 +142,9 @@ class contractWhistClient:
         card_count_string = makeStringVar(config_frame, ROUND_SIZE[-1])
         card_count_option_menu = makeOptionMenu(config_frame, card_count_string, ROUND_SIZE, 3, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.66, "w", None)
 
+        makeButton(config_frame, "Start", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.55, 0.78, "center", lambda: self.startOfflineGame(username, int(bots_string.get()), int(card_count_string.get()), self.user_config.getColourScheme()), 12)
+        makeButton(config_frame, "Back", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.45, 0.78, "center", lambda: config_frame.destroy(), 12)
+        tk.mainloop()
 
 
     @staticmethod
