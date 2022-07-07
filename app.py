@@ -119,11 +119,6 @@ class contractWhistClient:
 
 
 
-    @staticmethod    
-    def _makeFrame(frame, bg, rw, rh, rx, ry):
-        new_frame = tk.Frame(frame, bg=bg)
-        new_frame.place(relwidth=rw, relheight=rh, relx=rx, rely=ry)
-        return new_frame
     def setupOfflineGame(self, username):
         config_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
         canvasBG, photoimageBG = placeImage(config_frame, TEXTURES_DIR+"background2.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
