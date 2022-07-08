@@ -148,10 +148,6 @@ class contractWhistClient:
 
 
     @staticmethod
-    def _makeStringVar(frame, default_value):
-        stringVar = tk.StringVar(frame)
-        stringVar.set(default_value)
-        return stringVar
     def showPlaystyleDesc(playstyle_desc, selection):
         playstyle_desc["text"] = PLAYSTYLE_DESC[selection]
         

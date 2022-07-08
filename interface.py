@@ -26,6 +26,12 @@ def makeButton(frame, text, width, bg, fg, rx, ry, anchor, command, size):
     return button
 
 
+def makeStringVar(frame, default_value):
+    stringVar = tk.StringVar(frame)
+    stringVar.set(default_value)
+    return stringVar
+
+                     
 
 
 def makeEntry(frame, width, bg, fg, textvariable, rx, ry, anchor):
