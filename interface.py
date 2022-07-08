@@ -32,6 +32,16 @@ def makeStringVar(frame, default_value):
     return stringVar
 
                      
+def makeOptionMenu(frame, displayed, choices, width, bg, fg, rx, ry, anchor, command):
+    option_menu = tk.OptionMenu(frame, displayed, *choices, command=command)
+    option_menu.config(width=width, bg=bg, fg=fg)
+    option_menu["menu"].config(bg=bg, fg=fg)
+    option_menu["borderwidth"]=0
+    option_menu["highlightthickness"]=0
+    option_menu.place(relx=rx, rely=ry, anchor=anchor)
+    return option_menu
+
+
 
 
 def makeEntry(frame, width, bg, fg, textvariable, rx, ry, anchor):
