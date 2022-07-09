@@ -162,6 +162,16 @@ class contractWhistClient:
         playstyle_desc["text"] = PLAYSTYLE_DESC[selection]
         
 
+    def startOfflineGame(self, username, bot_count, start_round_size, col_scheme):
+        print("offline with bots")
+        offline_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
+        loading_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
+        canvasBG, photoimageBG = placeImage(loading_frame, TEXTURES_DIR+"background.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
+        makeLabel(loading_frame, "Loading...", "black", COLOUR_BUTTON, 0.5, 0.5, "center", 25)
+        offline_game = OfflineGame(offline_frame, username, bot_count, col_scheme, start_round_size)
+        offline_game.offlineStart()
+        loading_frame.destroy()
+        offline_game.startGame()
 
 
     @staticmethod
