@@ -43,3 +43,12 @@ class OfflineGame:
         self.frame_dims = self._getFrameDims(self.top_frame, self.left_frame, self.right_frame, self.player_hand_frame)
         self.game = makeLabel(self.parent, "", COLOUR_WIDGET_D, COLOUR_WIDGET_D, 0.5, 0, "center", 5)
         
+
+
+    def _placeAreaFrames(self):
+        self.left_frame = self._makeLeftFrame()
+        self.top_frame = self._makeTopFrame()
+        self.right_frame = self._makeRightFrame()
+        self.center_frame = self._makeCenterFrame()
+        self.player_hand_frame = self._makePlayerHandFrame()
+        self.player_hand_frame.update_idletasks()
