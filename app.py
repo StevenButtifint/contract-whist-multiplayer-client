@@ -114,6 +114,16 @@ class contractWhistClient:
         tk.mainloop()
 
 
+    def showPlayerIcon(self, lobby_frame):
+        self.user_config.updateUserIconID()
+        try:
+            self.icon_frame.destroy()
+        except: pass
+        self.icon_frame = makeFrame(lobby_frame, COLOUR_PRIME, 0.15, 0.28, 0.5, 0.30, "center")
+        canvas, photoimage = placeImage(self.icon_frame, CHAR_ICONS_DIR+"player_"+str(self.user_config.getUserIconID())+".png", WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
+        return canvas, photoimage   
+
+
 
 
 
