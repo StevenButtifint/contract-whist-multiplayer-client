@@ -52,4 +52,11 @@ ROUND_SIZE = [1,2,3,4,5,6,7,8,9,10]
 #ERROR CODES
 L01 = "Lobby code is invalid."
 L02 = "Lobby is full."
+C00 = "Connection successful."
+C01 = "Cannot find credentials."
+C02 = "Invalid credentials."
 
+
+#MULTIPLAYER CONSTANTS
+SERVICE_ACCOUNT_FILE = 'keys/default_key.json'
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
