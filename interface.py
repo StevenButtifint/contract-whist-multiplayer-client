@@ -42,6 +42,15 @@ def makeOptionMenu(frame, displayed, choices, width, bg, fg, rx, ry, anchor, com
     return option_menu
 
 
+def placeImage(parent, file, w, h, x, y, anchor):
+    canvas = tk.Canvas(parent, bg=COLOUR_SECOND, width=w, height=h)
+    canvas.place(relx=x, rely=y, anchor=anchor)
+    canvas["highlightthickness"]=0
+    img = Image.open(file)
+    img = img.resize((w,h), Image.ANTIALIAS)
+    photoimage = ImageTk.PhotoImage(img)
+    canvas.create_image(w//2, h//2, image=photoimage)
+    return canvas, photoimage
 
 
 def makeEntry(frame, width, bg, fg, textvariable, rx, ry, anchor):
