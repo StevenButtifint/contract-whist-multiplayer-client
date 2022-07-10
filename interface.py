@@ -67,4 +67,10 @@ def makePhotoImage(loc, w, h, rotation):
     return ImageTk.PhotoImage(image)
 
 
+def makeLabelImage(frame, image, bg, rx, ry, anchor):
+    image_label = tk.Label(frame, image=image, bg=bg)
+    image_label.config(borderwidth=0, highlightthickness=0)
+    image_label.image = image
+    image_label.place(relx=rx, rely=ry, anchor=anchor)
+    return image_label
     
