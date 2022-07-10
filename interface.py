@@ -59,5 +59,12 @@ def makeEntry(frame, width, bg, fg, textvariable, rx, ry, anchor):
     return entry
 
 
+def makePhotoImage(loc, w, h, rotation):
+    image = Image.open(loc)
+    image = image.resize((w, h))
+    if rotation != None:
+        image = image.transpose(rotation)
+    return ImageTk.PhotoImage(image)
+
 
     
