@@ -62,3 +62,11 @@ class OfflineGame:
         self.player_turn_label = makeLabel(self.parent, "", COLOUR_PRIME, COLOUR_TEXT_L, 0.5, 0.695, "center", 10)
 
     
+    def _getFrameDims(self, *args):
+        dimentions = []
+        for frame in args:
+            dimentions.append(frame.winfo_width())
+            dimentions.append(frame.winfo_height())
+        return dimentions
+
+
