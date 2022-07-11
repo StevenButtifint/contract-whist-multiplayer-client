@@ -70,3 +70,9 @@ class OfflineGame:
         return dimentions
 
 
+    def _makeTopOptions(self):
+        self.options_frame = makeFrame(self.parent, COLOUR_WIDGET_D, 1, 0.05, 0.5, 0, "n")
+        makeButton(self.options_frame, "Peek", 8, COLOUR_WIDGET_L, COLOUR_TEXT_L, 0.2, 0.5, "center",  lambda: self._peekOpponents(), 10)
+        makeButton(self.options_frame, "End Game", 8, COLOUR_WIDGET_L, COLOUR_TEXT_L, 0.05, 0.5, "center",  lambda: self.parent.destroy(), 10)
+
+        
