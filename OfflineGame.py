@@ -135,3 +135,15 @@ class OfflineGame:
         self._placeAllHands()
 
 
+    def _setupRound(self):
+        self._shuffleDeck()
+        for x in range(self.player_count):
+            self.hands[x] = self.cards_deck[x*self.round_size_two:x*self.round_size_two+self.round_size_two]
+        self._setTrumpSuit()
+        self._orderHands()
+        self.showPlayerCards()
+        self.populateCenter()
+        #place all opponent cards
+        self._placeAllHands()
+
+
