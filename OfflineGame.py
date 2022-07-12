@@ -130,3 +130,8 @@ class OfflineGame:
             self.score_right_label["text"] = "Predicted: " + str(self.predictions[3]) + ", Won: " + str(self.subRoundsWon[3])
 
 
+    def _peekOpponents(self):
+        self.peek = not self.peek
+        self._placeAllHands()
+
+
