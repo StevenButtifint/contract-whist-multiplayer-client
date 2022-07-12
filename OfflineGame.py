@@ -76,3 +76,23 @@ class OfflineGame:
         makeButton(self.options_frame, "End Game", 8, COLOUR_WIDGET_L, COLOUR_TEXT_L, 0.05, 0.5, "center",  lambda: self.parent.destroy(), 10)
 
         
+    def _makeLeftFrame(self):
+        return makeFrame(self.parent, COLOUR_PRIME, 0.0843, 0.6, 0.1, 0.428, "center")
+
+
+    def _makeTopFrame(self):
+        return makeFrame(self.parent, COLOUR_PRIME, 0.48, 0.15, 0.5, 0.21, "center")
+
+
+    def _makeRightFrame(self):
+        return makeFrame(self.parent, COLOUR_PRIME, 0.0843, 0.6, 0.9, 0.428, "center")
+
+
+    def _makeCenterFrame(self):
+        return makeFrame(self.parent, COLOUR_WIDGET_D, 0.6, 0.35, 0.5, 0.49, "center")
+
+
+    def _makePlayerHandFrame(self):
+        return makeFrame(self.parent, COLOUR_PRIME, 0.9, 0.21, 0.5, 0.84, "center")
+
+
