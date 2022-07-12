@@ -105,3 +105,15 @@ class OfflineGame:
         return deck_order
 
 
+    def _placeNames(self):#place names and predicted/achieved
+        if self.player_count == 2:
+            name_top_label = makeLabel(self.parent, self.names[1], COLOUR_PRIME, COLOUR_TEXT_L, 0.5, 0.08, "center", 10)
+        elif self.player_count == 3:
+            name_left_label = makeLabel(self.parent, self.names[1], COLOUR_PRIME, COLOUR_TEXT_L, 0.1, 0.08, "center", 10)
+            name_right_label = makeLabel(self.parent, self.names[2], COLOUR_PRIME, COLOUR_TEXT_L, 0.9, 0.08, "center", 10)
+        elif self.player_count == 4:
+            name_left_label = makeLabel(self.parent, self.names[1], COLOUR_PRIME, COLOUR_TEXT_L, 0.1, 0.08, "center", 10)
+            name_top_label = makeLabel(self.parent, self.names[2], COLOUR_PRIME, COLOUR_TEXT_L, 0.5, 0.08, "center", 10)
+            name_right_label = makeLabel(self.parent, self.names[3], COLOUR_PRIME, COLOUR_TEXT_L, 0.9, 0.08, "center", 10)
+
+
