@@ -151,3 +151,35 @@ class OfflineGame:
         random.shuffle(self.cards_deck)
 
 
+    def _orderHands(self):
+        for index, hand in enumerate(self.hands):
+            h, s, d, c = [], [], [], []
+            for card in hand:
+                if "h" in card:
+                    h.append(card)
+                elif "s" in card:
+                    s.append(card)
+                elif "d" in card:
+                    d.append(card)
+                elif "c" in card:
+                    c.append(card)
+
+            h = sorted(h)
+            s = sorted(s)
+            d = sorted(d)
+            c = sorted(c)
+            ordered_hand = []
+            
+            if self.trump_suit == "h":
+                ordered_hand = s + d + c + h
+            elif self.trump_suit == "s":
+                ordered_hand = d + c + h + s
+            elif self.trump_suit == "d":
+                ordered_hand = c + h + s + d
+            elif self.trump_suit == "c":
+                ordered_hand = h + s + d + c
+            
+            for card in range(len(hand)):
+                self.hands[index][card] = ordered_hand[card]
+
+
