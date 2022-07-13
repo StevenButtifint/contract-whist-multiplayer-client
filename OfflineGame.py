@@ -147,3 +147,7 @@ class OfflineGame:
         self._placeAllHands()
 
 
+    def _shuffleDeck(self):
+        random.shuffle(self.cards_deck)
+
+
