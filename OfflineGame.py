@@ -196,3 +196,12 @@ class OfflineGame:
         self.showPlayerCards()
 
 
+    def showPlayerCards(self):
+        for x in range(len(self.hands[0])):
+            img_loc = "res/card_packs/" + self.colour_scheme + "/" + self.hands[0][x] + ".png"
+            h = self.frame_dims[7]
+            w = int(0.6887*h)
+            relx = 0.09*(x+1)
+            self._placeImage(self.player_hand_frame, img_loc, w, h, relx, 0, "n")
+            
+
