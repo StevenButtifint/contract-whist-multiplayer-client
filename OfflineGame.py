@@ -205,3 +205,13 @@ class OfflineGame:
             self._placeImage(self.player_hand_frame, img_loc, w, h, relx, 0, "n")
             
 
+    @staticmethod
+    def _placeImage(frame, img_location, width, height, relx, rely, anchor):
+            image = Image.open(img_location)
+            image = image.resize((width, height))
+            image = ImageTk.PhotoImage(image)
+            image_label = Label(frame, image=image)
+            image_label.image = image
+            image_label.place(relx=relx, rely=rely, anchor=anchor)
+
+
