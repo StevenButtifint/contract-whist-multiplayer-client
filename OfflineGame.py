@@ -225,3 +225,8 @@ class OfflineGame:
         self.center_cards += 1
 
 
+    def _placeAllHands(self):
+        for p in range(1, self.player_count):
+            self._placeOpponentCards(p)
+
+
