@@ -183,3 +183,16 @@ class OfflineGame:
                 self.hands[index][card] = ordered_hand[card]
 
 
+    def playerMadeTurn(self, card):
+        self.playerOptions = self.playerOptions.destroy()
+        self.current_player = 1
+        self.pause_user = False
+        self._placeCardCenter(0, card)
+        #delete card
+        del self.hands[0][int(card)]
+        self.round_size -= 1
+        self.player_hand_frame = self.player_hand_frame.destroy()
+        self.player_hand_frame = self._makePlayerHandFrame()
+        self.showPlayerCards()
+
+
