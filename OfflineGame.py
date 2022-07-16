@@ -271,3 +271,34 @@ class OfflineGame:
         self.populateCenter()
 
 
+    def _showResults(self):
+        self.results_frame = makeFrame(self.parent, COLOUR_WIDGET_D, 1, 0.93, 0.5, 0.07, "n")
+
+      #  self.results = [[0, True, 1, True, 2, False, 3, False],
+      #                  [0, True, 1, True, 2, False, 3, False],
+      #                  [0, True, 1, True, 2, False, 3, False],
+      #                  [0, True, 1, True, 2, False, 3, False],
+      #                  [0, True, 1, True, 2, False, 3, False],
+      #                  [0, True, 1, True, 2, False, 3, False],
+       #                 [0, True, 1, True, 2, False, 3, False],
+       #                 [0, True, 1, True, 2, False, 3, False],
+       #                 [0, True, 1, True, 2, False, 3, False],
+       #                 [100, True, 101, True, 102, False, 103, False]]
+        
+        makeLabel(self.parent, "Results", COLOUR_WIDGET_D, "white", 0.5, 0.15, "center", 16)
+
+        self.round_title_label = makeLabel(self.parent, "Round", COLOUR_WIDGET_D, "white", 0.08, 0.3, "center", 10)
+        
+        for col, name in enumerate(self.names):
+            self.name_label = makeLabel(self.parent, name, COLOUR_WIDGET_D, "white", 0.25+(0.2*col), 0.3, "w", 10)
+            for r in range(len(self.results)):
+                if col == 0:
+                    self.round_number_label = makeLabel(self.parent, str(r+1), COLOUR_WIDGET_D, "white", 0.08+(0.2*col), 0.32+((r+1)*0.05), "center", 10)
+
+                self.score_label = makeLabel(self.parent, str(self.results[r][col*2]), COLOUR_WIDGET_D, "white", 0.24+(0.2*col), 0.32+((r+1)*0.05), "center", 10)
+                self.score_label = makeLabel(self.parent, str(self.results[r][col*2+1]), COLOUR_WIDGET_D, "white", 0.28+(0.2*col), 0.32+((r+1)*0.05), "center", 10)
+
+        makeLabel(self.parent, "PLAYER won the game!", COLOUR_WIDGET_D, "white", 0.5, 0.88, "center", 10)
+
+
+ 
