@@ -302,3 +302,14 @@ class OfflineGame:
 
 
  
+
+
+    @staticmethod
+    def _getValidCards(full_hand, first_card_suit):
+        valid_hand = []
+        for card in full_hand:
+            if first_card_suit in card:
+                valid_hand.append(card)
+        if len(valid_hand) == 0:
+            valid_hand = full_hand
+        return valid_hand
