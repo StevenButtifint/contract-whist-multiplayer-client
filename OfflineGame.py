@@ -230,3 +230,22 @@ class OfflineGame:
             self._placeOpponentCards(p)
 
 
+    def _calculateRoundWinner(self):
+        card_values = []
+        round_suit = self.center_state[0][1][-1]
+
+        #calculate card values
+        for pair in self.center_state:
+            card = pair[1]
+            value = 0
+            if self.trump_suit in card:
+                value += 13
+            if round_suit in card:
+                value += CARD_ORDER.index(card[0])
+            card_values.append(value)
+
+        #calc winning player index
+        winner = self.center_state[card_values.index(max(card_values))][0]
+        return winner
+      
+
