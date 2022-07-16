@@ -249,3 +249,25 @@ class OfflineGame:
         return winner
       
 
+    def _startNextRound(self):
+        #calc winner for round
+
+        winner_index = self._calculateRoundWinner()
+        self.subRoundsWon[winner_index] += 1
+        print(self.subRoundsWon)
+
+        self.current_player = winner_index
+
+        self._placePredictionsWon()
+
+        #clear center
+        self.center_state = []
+        self.center_frame = self.center_frame.destroy()
+        self.center_frame = self._makeCenterFrame()
+        self.center_cards = 0
+
+        #self._setupRound()
+        #update center info
+        self.populateCenter()
+
+
