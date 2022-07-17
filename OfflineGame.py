@@ -96,6 +96,12 @@ class OfflineGame:
         return makeFrame(self.parent, COLOUR_PRIME, 0.9, 0.21, 0.5, 0.84, "center")
 
 
+    def offlineStart(self):
+        self._placePredictionsWon()
+        self._placeNames()
+        self._setupRound()
+
+
     @staticmethod
     def _setHandOrder(player_count):
         deck_order = [1, 1, 2]  #left, top, right
