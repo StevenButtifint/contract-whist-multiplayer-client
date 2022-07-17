@@ -477,3 +477,27 @@ class OfflineGame:
          self.trump_suit = SUIT_LETTERS[self.round_number%4]
 
         
+    def populateCenter(self):
+        #trump suit center info
+        self._setTrumpSuit()
+        h = self.frame_dims[7]//2
+        trump_suit_label = Label(self.center_frame, text="Trump: " + SUIT_NAMES[SUIT_LETTERS.index(self.trump_suit)], bg=COLOUR_CENTER, fg="white")
+        trump_suit_label.place(relx=0.01, rely=0.01, anchor="nw")
+        image = Image.open("res/icons/" + self.trump_suit + "_icon.png")
+        image = image.resize((h, h))
+        image = ImageTk.PhotoImage(image)
+
+       # cardImg = PhotoImage(file = "res/images/icons/" + self.trump_suit + "_icon.png")
+        image_label = Label(self.center_frame, image=image)
+        image_label.image = image
+        image_label.place(relx=0.031, rely=0.14, anchor="nw")
+
+        scores = ""
+        for index, name in enumerate(self.names):
+            scores += name + ": " + str(self.scores[index]) + "\n"
+            
+        makeLabel(self.center_frame, "Scores:", COLOUR_CENTER, COLOUR_TEXT_L, 0.08, 0.57, "center", 11)
+        makeLabel(self.center_frame, scores, COLOUR_CENTER, COLOUR_TEXT_L, 0.08, 0.85, "center", 9)
+        makeLabel(self.center_frame, "Round: " + str(self.round_number+1) + " of " + str(self.total_rounds), COLOUR_CENTER, "white", 0.5, 0.05, "center", 9)
+        
+
