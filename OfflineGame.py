@@ -313,3 +313,44 @@ class OfflineGame:
         if len(valid_hand) == 0:
             valid_hand = full_hand
         return valid_hand
+    
+
+    def _placeOpponentCards(self, opponent):
+            card = "bk"
+            #self.player_hand_frame.winfo_height()
+            #TOP
+            if ((self.player_count == 2) & (opponent == 1)) or ((self.player_count == 4) & (opponent == 2)):
+                self.top_frame = self.top_frame.destroy()
+                self.top_frame = self._makeTopFrame()#self._makeFrame(self.parent, 0.48, 0.15, 0.5, 0.21, "blue", "center")
+
+                h = self.frame_dims[1]
+                for x in range(len(self.hands[opponent])):
+                    if self.peek == True:
+                        card = self.hands[opponent][x]
+                    image = makePhotoImage("res/card_packs/" + self.colour_scheme + "/" + card + ".png", int(h*0.6887), h, None)                    
+                    makeLabelImage(self.top_frame, image, COLOUR_PRIME, 0.09*(x+1), 0.5, "center")
+
+            #LEFT
+            elif (self.player_count != 2) & (opponent == 1):
+                self.left_frame = self.left_frame.destroy()
+                self.left_frame = self._makeLeftFrame() #self._makeFrame(self.parent, 0.11, 0.6, 0.1, 0.42, "pink", "center")
+                w = self.frame_dims[2]
+                for x in range(len(self.hands[opponent])):
+                    if self.peek == True:
+                        card = self.hands[self.deck_order[0]][x]
+                    image = makePhotoImage("res/card_packs/" + self.colour_scheme + "/" + card + ".png", int(w*0.6887), w, Image.ROTATE_270)                    
+                    makeLabelImage(self.left_frame, image, COLOUR_PRIME, 0.5, 0.09*(x+1), "center")
+    
+            #RIGHT
+            elif ((self.player_count == 3) & (opponent == 2)) or ((self.player_count == 4) & (opponent == 3)):
+                self.right_frame = self.right_frame.destroy()
+                self.right_frame = self._makeRightFrame()#self._makeFrame(self.parent, 0.11, 0.6, 0.9, 0.42, "yellow", "center")
+                w = self.frame_dims[4]
+                for x in range(len(self.hands[opponent])):
+                    if self.peek == True:
+                        card = self.hands[self.deck_order[2]][x]
+                    image = makePhotoImage("res/card_packs/" + self.colour_scheme + "/" + card + ".png", int(w*0.6887), w, Image.ROTATE_90)                    
+                    makeLabelImage(self.right_frame, image, COLOUR_PRIME, 0.5, 1-(0.09*(x+1)), "center")
+
+
+
