@@ -473,3 +473,7 @@ class OfflineGame:
 
 
 
+    def _setTrumpSuit(self):
+         self.trump_suit = SUIT_LETTERS[self.round_number%4]
+
+        
