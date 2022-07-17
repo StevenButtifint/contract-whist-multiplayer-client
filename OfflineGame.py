@@ -302,6 +302,119 @@ class OfflineGame:
 
 
  
+    def startGame(self):
+       
+        #if center is full
+        if self.center_cards == self.player_count:
+            
+                #pause to show winner for each round
+
+                #self.player_turn_label['text'] = f'{self.names[self.current_player]} won the round!' #fixxx #move to win round code
+                #self.player_turn_label['fg'] = "yellow"
+                
+                time.sleep(1)
+
+                #if there are still cards left to be played
+                if len(self.hands[0]) != 0:
+                    print("next sub round")
+                    self._startNextRound()
+                    
+                else:
+                    print("next round")                    
+                    
+                    #update scores and clear rounds one and TODO redo redictions
+                    new_results = []
+                    
+                    for player in range(self.player_count):
+
+                        self.scores[player] += self.subRoundsWon[player]
+
+                        new_results.append(self.scores[player])
+                        new_results.append(False)
+                        
+                        self.predictions[player] = 0
+                        self.subRoundsWon[player] = 0
+
+
+                    self.results.append(new_results)
+                    print(self.results)
+
+                    self.round_size -= 1
+                    self.round_number += 1
+
+                    if self.round_number == self.total_rounds:
+                        print("end game 2")
+                        self.game_active = False
+                        #results page
+                        self._showResults()
+                            
+                    else:
+                        self._startNextRound()
+                        self.round_size_two -= 1
+                        self.round_size = self.round_size_two
+                        self._setupRound()
+
+                
+        if self.game_active:
+
+            #if players turn
+            if (self.current_player == self.player_count) or (self.current_player == 0):
+
+                #if player not already given choice options
+                if not self.pause_user:
+                    self.pause_user = True
+                    self.current_player = 0
+
+                    self.player_turn_label["text"] = "Your Turn!"
+                    self.player_turn_label['fg'] = "red"
+
+                    #show player hand
+                    self.showPlayerCards()
+
+                    #get valid player options
+                    hand = self.hands[0]
+                    if self.center_cards != 0:
+                        first_card_suit = self.center_state[0][1][-1]
+                        hand = self._getValidCards(hand, first_card_suit)
+                    valid_indexes = []
+                    for card in hand:
+                        valid_indexes.append(self.hands[0].index(card))
+                
+                    #show valid player options
+                    self.playerOptions = makeFrame(self.parent, COLOUR_PRIME, 0.9, 0.05, 0.5, 0.95, "n")
+                    for card in range(self.round_size):
+                        if card in valid_indexes:
+                            makeButton(self.playerOptions, "Select", 8, COLOUR_BUTTON, COLOUR_TEXT_L, 0.09*(card+1), 0.5, "center", lambda x=card: self.playerMadeTurn(str(x)), 9)
+
+            #else bots turn
+            elif self.current_player != 0:
+                self.player_turn_label['text'] = f'{self.names[self.current_player]}\'s turn!'
+                self.player_turn_label['fg'] = COLOUR_TEXT_L
+
+                #botMakeTurn function?
+                
+                hand = self.hands[self.current_player]
+                #get valid cards from bot hand
+                if self.center_cards != 0:
+                    first_card_suit = self.center_state[0][1][-1]
+                    hand = self._getValidCards(hand, first_card_suit)
+                    
+                #randomly pick index from valid cards
+                card_choice = hand[random.randint(0, len(hand)-1)]
+                choice_index = self.hands[self.current_player].index(card_choice)
+                
+                #place card in center
+                self._placeCardCenter(self.current_player, choice_index)
+
+                #delete card from bot hand            
+                del self.hands[self.current_player][choice_index]
+
+                #reload bot hand
+                self._placeOpponentCards(self.current_player)
+                
+                self.current_player += 1
+
+            self.game.after(1000, self.startGame)
 
 
     @staticmethod
