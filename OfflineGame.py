@@ -501,3 +501,9 @@ class OfflineGame:
         makeLabel(self.center_frame, "Round: " + str(self.round_number+1) + " of " + str(self.total_rounds), COLOUR_CENTER, "white", 0.5, 0.05, "center", 9)
         
 
+    @staticmethod
+    def _setBotNames(number_of_bots):
+        return random.sample(BOT_NAMES, number_of_bots)
+
+
+    
