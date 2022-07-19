@@ -49,7 +49,8 @@ BOT_COUNT = [1, 2, 3]
 ROUND_SIZE = [1,2,3,4,5,6,7,8,9,10]
 
 
-#ERROR CODES
+#MESSAGE CODES
+L00 = "Joined lobby."
 L01 = "Lobby code is invalid."
 L02 = "Lobby is full."
 C00 = "Connection successful."
