@@ -16,6 +16,10 @@ class SheetsConnection:
         self.current_players = []
         self.player_ID = None
         self.player_name = None
+ 
+    
+    def setSessionID(self, session_ID):
+        self.session_ID = session_ID
 
 
     def setLobbyID(self, lobby_ID):
