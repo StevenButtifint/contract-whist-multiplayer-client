@@ -18,6 +18,10 @@ class SheetsConnection:
         self.player_name = None
 
 
+    def setLobbyID(self, lobby_ID):
+        self.lobby_ID = lobby_ID
+
+
     def setPlayerName(self, player_name):
         self.player_name = player_name
         
