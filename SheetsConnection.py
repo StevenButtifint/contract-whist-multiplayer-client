@@ -16,3 +16,8 @@ class SheetsConnection:
         self.current_players = []
         self.player_ID = None
         self.player_name = None
+
+
+    def setPlayerName(self, player_name):
+        self.player_name = player_name
+        
