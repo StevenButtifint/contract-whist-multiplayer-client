@@ -33,6 +33,12 @@ class SheetsConnection:
         return values
 
 
+    def setSheetData(self, cell, data):
+        request = self.sheet.values().update(spreadsheetId=self.session_ID,
+                                range="p1!"+str(cell), valueInputOption="USER_ENTERED",
+                                body={"values":data}).execute()
+
+
  
     
     def setSessionID(self, session_ID):
