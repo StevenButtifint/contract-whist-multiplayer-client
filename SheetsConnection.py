@@ -27,6 +27,12 @@ class SheetsConnection:
         self.sheet = self.service.spreadsheets()
 
 
+    def getSheetData(self, page, cell_start, cell_end):
+        result = self.sheet.values().get(spreadsheetId=self.session_ID, range=page+"!"+cell_start+":"+cell_end).execute()
+        values = result.get('values', [])
+        return values
+
+
  
     
     def setSessionID(self, session_ID):
