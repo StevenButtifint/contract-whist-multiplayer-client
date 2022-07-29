@@ -16,6 +16,12 @@ class SheetsConnection:
         self.current_players = []
         self.player_ID = None
         self.player_name = None
+
+
+    def _initialiseCredentials(self):
+        self.credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
+
  
     
     def setSessionID(self, session_ID):
