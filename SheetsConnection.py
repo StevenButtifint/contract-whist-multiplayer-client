@@ -22,6 +22,11 @@ class SheetsConnection:
         self.credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
 
+    def _initialiseSheet(self):
+        self.service = build('sheets', 'v4', credentials=self.credentials)
+        self.sheet = self.service.spreadsheets()
+
+
  
     
     def setSessionID(self, session_ID):
