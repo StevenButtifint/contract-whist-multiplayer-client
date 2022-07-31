@@ -17,3 +17,9 @@ class UserConfig:
         return self.username
 
 
+    def getIdentifier(self):
+        if self.identifier == "":
+            self.setIdentifier()
+        return self.identifier
+
+
