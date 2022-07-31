@@ -23,3 +23,7 @@ class UserConfig:
         return self.identifier
 
 
+    def getColourScheme(self):
+        return self.colour_scheme
+
+
