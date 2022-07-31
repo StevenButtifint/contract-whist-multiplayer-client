@@ -27,3 +27,7 @@ class UserConfig:
         return self.colour_scheme
 
 
+    def getUserIconID(self):
+        return self.userIconID
+
+
