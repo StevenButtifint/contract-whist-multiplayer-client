@@ -31,3 +31,7 @@ class UserConfig:
         return self.userIconID
 
 
+    def updateUserIconID(self, ):
+        self.userIconID = (self.userIconID+1)%17
+
+    
