@@ -35,3 +35,7 @@ class UserConfig:
         self.userIconID = (self.userIconID+1)%17
 
     
+    def setUsername(self, username):
+        self.username = username
+    
+
