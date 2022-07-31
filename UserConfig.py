@@ -7,3 +7,13 @@ class UserConfig:
         self.username = ""
         self.colour_scheme = "Default"
         self.userIconID = random.randint(1, 17)
+
+
+    def getUsername(self):
+        if self.username == "":
+            self.username = "new Player"
+        elif len(self.username) > 15:
+            self.username = self.username[0:15]
+        return self.username
+
+
