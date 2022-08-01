@@ -45,3 +45,7 @@ class UserConfig:
         self.identifier = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
 
 
+    def setColourScheme(self, colour_scheme):
+        self.colour_scheme = colour_scheme
+
+
