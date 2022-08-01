@@ -1,3 +1,4 @@
+import string
 import random
 
 
@@ -38,4 +39,8 @@ class UserConfig:
     def setUsername(self, username):
         self.username = username
     
+
+    def setIdentifier(self):
+        self.identifier = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
+
 
