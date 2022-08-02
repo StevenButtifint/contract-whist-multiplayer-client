@@ -39,6 +39,11 @@ class SheetsConnection:
                                 body={"values":data}).execute()
 
 
+    def setClientID(self):
+        self.client_ID = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
+
+
+        
  
     
     def setSessionID(self, session_ID):
