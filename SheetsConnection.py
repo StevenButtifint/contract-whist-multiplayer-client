@@ -2,6 +2,9 @@ from googleapiclient.discovery import build
 from google.oauth2 import service_account
 from constants import *
 
+import string
+import random
+
 
 class SheetsConnection:   
     def __init__(self):
@@ -16,6 +19,9 @@ class SheetsConnection:
         self.current_players = []
         self.player_ID = None
         self.player_name = None
+        self.client_ID = self.setClientID()
+
+
 
 
     def _initialiseCredentials(self):
