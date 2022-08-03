@@ -68,6 +68,27 @@ class SheetsConnection:
         return found_lobby[0][0] == self.lobby_ID
         
 
+    def joinLobby(self):
+        player_slots = ["c", "d", "e", "f"]
+        self.current_players = self.getSheetData("p1", "c"+str(self.game_row), "f"+str(self.game_row))[0]
+        print(self.current_players)
+        if len(self.current_players) < 4:
+            print(player_slots[len(self.current_players)]+str(self.game_row))
+            print(self.player_name)
+            self.setSheetData(player_slots[len(self.current_players)]+str(self.game_row), [[self.player_name]])
+            self.player_ID = len(self.current_players)
+            self.notice = L00
+            print(self.player_name)
+            return True
+        
+        elif '' in self.current_players:
+            self.setSheetData(player_slots[self.current_players.index('')]+str(self.game_row), [[self.player_name]])
+            self.player_ID = player_slots[self.current_players.index('')]+str(self.game_row)
+            self.notice = L00
+            return True
+        else:
+            self.notice = L02
+            return False
  
     
     def setSessionID(self, session_ID):
