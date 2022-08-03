@@ -22,6 +22,17 @@ class SheetsConnection:
         self.client_ID = self.setClientID()
 
 
+    def initialiseConnection(self):
+        try:
+            self._initialiseCredentials()
+            try:
+                self._initialiseSheet()
+                self.notice = C00
+                self.link_status = True
+            except:
+                self.notice = C02
+        except:
+            self.notice = C01
 
 
     def _initialiseCredentials(self):
