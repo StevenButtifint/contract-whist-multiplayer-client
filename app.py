@@ -7,6 +7,7 @@ from PIL import ImageTk, Image
 
 from UserConfig import UserConfig
 from OfflineGame import OfflineGame
+from SheetsConnection import SheetsConnection
 from constants import *
 from interface import *
 
@@ -19,7 +20,8 @@ class contractWhistClient:
         self.window.iconbitmap("res/icon.ico")
         self.windowSize = list(WINDOW_SIZES.keys())[0]
         self._resize(self.window, self.windowSize)
-        
+
+        self.online_connect = SheetsConnection()
         self.colour_schemes = self._getColourSchemes()
         self.user_config = UserConfig()
         self.makeHomePage()
