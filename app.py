@@ -128,6 +128,10 @@ class contractWhistClient:
 
 
 
+    def validateLobbyCode(self, session_ID, lobby_ID):
+        self.online_connect.setSessionID(session_ID)
+        self.online_connect.setLobbyID(lobby_ID)
+        return self.online_connect.checkForLobby()
 
 
     def setupOfflineGame(self, username):
