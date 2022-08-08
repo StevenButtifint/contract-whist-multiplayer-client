@@ -185,6 +185,7 @@ class contractWhistClient:
         image = image.resize((w, h))
         img = ImageTk.PhotoImage(image)   
         label = tk.Label(frame, image=img, bg=bg)
+        label.config(borderwidth =0, highlightthickness=0)
         label.image = img
         label.place(relx=relx, rely=rely, anchor="center")
         
