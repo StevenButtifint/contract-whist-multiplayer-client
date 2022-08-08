@@ -1,8 +1,7 @@
-import tkinter as tk
+import os
 import random
 import threading
-import os
-
+import tkinter as tk
 from PIL import ImageTk, Image
 
 from UserConfig import UserConfig
