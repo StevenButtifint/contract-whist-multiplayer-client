@@ -71,7 +71,7 @@ class contractWhistClient:
         makeButton(home_frame, "Online Multiplayer", 15, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.65, "center", lambda: self.makeMultiplayerPage(), 16)
         makeButton(home_frame, "Options", 15, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.75, "center", lambda: self.makeSettingsPage(), 16)  
         makeButton(home_frame, "Exit", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.85, "center", lambda: quit(), 16)
-        tk.mainloop()
+        photoimage.image = photoimage
 
 
     def makeSettingsPage(self):
@@ -90,7 +90,7 @@ class contractWhistClient:
         self.showColourScheme(self.settings_frame, colour_string)
 
         makeButton(self.settings_frame, "Done", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.7, "center", lambda: self.settings_frame.destroy(), 12)        
-        tk.mainloop()
+        photoimage.image = photoimage
 
 
     def makeMultiplayerPage(self):
@@ -112,7 +112,8 @@ class contractWhistClient:
         notice = makeLabel(lobby_frame, "", "black", COLOUR_ERROR, 0.5, 0.8, "center", 12)
         makeButton(lobby_frame, "Back", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.49, 0.7, "ne", lambda: lobby_frame.destroy(), 10)
         makeButton(lobby_frame, "Join", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.51, 0.7, "nw", lambda: self.checkOnlineLobby(notice, lobby_entry.get(), username_entry.get()), 10)
-        tk.mainloop()
+        photoimage.image = photoimage
+        photoimageBG.image = photoimageBG
 
 
     def showPlayerIcon(self, lobby_frame):
