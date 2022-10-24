@@ -22,10 +22,10 @@ This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It c
 
 ##### Game Rules
 - Player with the most points at the end of all rounds wins.
-- Cards are ranked A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 (top to bottom).
+- The cards have the following order: A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2 (top to bottom).
 - Start of each round players predict how many rounds they will win.
-- If players get their prediction correct they gain 10 points.
 - For every round a player wins they gain 1 point.
+- Players that get their prediction correct gain 10 points.
 - [More game details can be found here](https://www.fgbradleys.com/rules/rules4/Contract%20Whist%20-%20rules.pdf)
 
 ##### Offline Play
