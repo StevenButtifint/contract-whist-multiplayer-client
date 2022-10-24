@@ -29,7 +29,7 @@ This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It c
 - [More game details can be found here](https://www.fgbradleys.com/rules/rules4/Contract%20Whist%20-%20rules.pdf)
 
 ##### Offline Play
-- Pick the number of bots to play againts.
+- Pick the number of bots to play against.
 - Pick the playstyle of the bots
 - Pick the size of the starting round.
 - Use "Peek" button to view bot cards.
@@ -44,7 +44,7 @@ This game was made using Python, Tkinter GUI toolkit and Google Sheets API. It c
 
 - Refreshed my knowledge of class programming in python.
 - Refined my utilisation of static methods and internal class methods.
-- Improved my pythonic modular approach to projects to allow them to scale easier.
-- Improved my frame managment and optimisation skills with Tkinter GUI toolkit.
+- Improved my modular approach to projects allowing them to scale easier.
+- Improved my frame management and optimisation skills with Tkinter GUI toolkit.
 
 [Back To The Top](#contract-whist-multiplayer-client)
