@@ -62,10 +62,14 @@ class SheetsConnection:
 
         
     def checkForLobby(self):
-        found_lobby = self.getSheetData("p1", "a"+str(self.game_row), "a1"+str(self.game_row))
-        print("looking for:", self.lobby_ID)
-        print("found:", found_lobby[0][0])
-        return found_lobby[0][0] == self.lobby_ID
+        try:
+            found_lobby = self.getSheetData("p1", "a"+str(self.game_row), "a1"+str(self.game_row))
+            print("looking for:", self.lobby_ID)
+            print("found:", found_lobby[0][0])
+            return found_lobby[0][0] == self.lobby_ID
+        except:
+            return False
+            
         
 
     def joinLobby(self):
