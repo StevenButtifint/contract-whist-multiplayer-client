@@ -88,13 +88,10 @@ class SheetsConnection:
             self.current_players_icons = []
             
         if len(self.current_players) < 4:
-            print(player_slots[len(self.current_players)]+str(self.game_row))
-            print(self.player_name)
             self.setSheetData(player_slots[len(self.current_players)]+str(self.game_row), [[self.player_name]])
             self.setSheetData(icon_slots[len(self.current_players)]+str(self.game_row), [[self.player_icon]])
             self.player_ID = len(self.current_players)
             self.notice = L00
-            print(self.player_name)
             return True
         
         elif '' in self.current_players:
@@ -102,6 +99,7 @@ class SheetsConnection:
             self.player_ID = player_slots[self.current_players.index('')]+str(self.game_row)
             self.notice = L00
             return True
+        
         else:
             self.notice = L02
             return False
@@ -117,4 +115,7 @@ class SheetsConnection:
 
     def setPlayerName(self, player_name):
         self.player_name = player_name
-        
+
+
+    def setPlayerIcon(self, player_icon):
+        self.player_icon = player_icon
