@@ -75,7 +75,12 @@ class SheetsConnection:
     def joinLobby(self):
         player_slots = ["c", "d", "e", "f"]
         self.current_players = self.getSheetData("p1", "c"+str(self.game_row), "f"+str(self.game_row))[0]
-        print(self.current_players)
+
+        try:
+            self.current_players = self.getSheetData("p1", "c"+str(self.game_row), "f"+str(self.game_row))[0]
+        except:
+            self.current_players = []
+
         if len(self.current_players) < 4:
             print(player_slots[len(self.current_players)]+str(self.game_row))
             print(self.player_name)
