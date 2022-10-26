@@ -92,6 +92,8 @@ class SheetsConnection:
             self.setSheetData(icon_slots[len(self.current_players)]+str(self.game_row), [[self.player_icon]])
             self.player_ID = len(self.current_players)
             self.notice = L00
+            #set updated values
+            self.getLobbyState()
             return True
         
         elif '' in self.current_players:
@@ -102,6 +104,18 @@ class SheetsConnection:
         
         else:
             self.notice = L02
+            return False
+
+
+    def getLobbyState(self):
+        try:
+            self.current_players = self.getSheetData("p1", "c"+str(self.game_row), "f"+str(self.game_row))[0]
+            self.current_players_icons = self.getSheetData("p1", "g"+str(self.game_row), "j"+str(self.game_row))[0]
+            self.current_players += list(['']*(4-len(self.current_players)))
+            self.current_players_icons += list(['']*(4-len(self.current_players_icons)))
+            return True
+        except:
+            self.notice = L03
             return False
  
     
