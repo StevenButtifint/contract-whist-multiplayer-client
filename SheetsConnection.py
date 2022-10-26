@@ -19,6 +19,7 @@ class SheetsConnection:
         self.current_players = []
         self.player_ID = None
         self.player_name = None
+        self.player_icon = None
         self.client_ID = self.setClientID()
 
 
@@ -74,17 +75,23 @@ class SheetsConnection:
 
     def joinLobby(self):
         player_slots = ["c", "d", "e", "f"]
-        self.current_players = self.getSheetData("p1", "c"+str(self.game_row), "f"+str(self.game_row))[0]
+        icon_slots = ["g", "h", "i", "j"]
 
         try:
             self.current_players = self.getSheetData("p1", "c"+str(self.game_row), "f"+str(self.game_row))[0]
         except:
             self.current_players = []
 
+        try:
+            self.current_players_icons = self.getSheetData("p1", "g"+str(self.game_row), "j"+str(self.game_row))[0]
+        except:
+            self.current_players_icons = []
+            
         if len(self.current_players) < 4:
             print(player_slots[len(self.current_players)]+str(self.game_row))
             print(self.player_name)
             self.setSheetData(player_slots[len(self.current_players)]+str(self.game_row), [[self.player_name]])
+            self.setSheetData(icon_slots[len(self.current_players)]+str(self.game_row), [[self.player_icon]])
             self.player_ID = len(self.current_players)
             self.notice = L00
             print(self.player_name)
