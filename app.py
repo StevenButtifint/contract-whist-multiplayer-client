@@ -227,6 +227,7 @@ class contractWhistClient:
         
         
 if __name__ == "__main__":
+    warnings.filterwarnings("ignore", category=DeprecationWarning) 
     contractWhistClient()
 
 
