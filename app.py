@@ -20,9 +20,10 @@ from constants import *
 from interface import *
 
 
+
 class contractWhistClient:
-    def __init__(self, parent):
-        self.window = parent
+    def __init__(self):
+        self.window = tk.Tk()
         self.window.resizable(width=False, height=False)
         self.window.title("Contract Whist Client - 1.2")
         self.window.iconbitmap("res/icon.ico")
@@ -223,8 +224,9 @@ class contractWhistClient:
         label.place(relx=relx, rely=rely, anchor="center")
         
 
+        
+        
 if __name__ == "__main__":
-    root = tk.Tk()
-    contractWhistClient(root)
+    contractWhistClient()
 
 
