@@ -158,6 +158,11 @@ class contractWhistClient:
             notice["text"] = self.online_connect.notice
         
 
+    @staticmethod
+    def getSessionIDLobbyID(entryCode):
+        session_ID = entryCode[:44]
+        lobby_ID = entryCode[-6:]
+        return session_ID, lobby_ID
 
 
     def validateLobbyCode(self, session_ID, lobby_ID):
