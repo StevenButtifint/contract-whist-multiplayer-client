@@ -1,12 +1,21 @@
+#python 3.9.4
+
+
 import os
+import time
+import queue
 import random
+import asyncio
+import warnings
 import threading
 import tkinter as tk
-from PIL import ImageTk, Image
 
+from threading import Thread
+from PIL import ImageTk, Image
 from UserConfig import UserConfig
 from OfflineGame import OfflineGame
 from SheetsConnection import SheetsConnection
+
 from constants import *
 from interface import *
 
