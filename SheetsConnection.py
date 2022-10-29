@@ -129,6 +129,10 @@ class SheetsConnection:
         self.lobby_ID = lobby_ID
 
 
+    def setPageID(self, page_ID):
+        self.page_ID = page_ID
+
+
     def setPlayerName(self, player_name):
         self.player_name = player_name
 
