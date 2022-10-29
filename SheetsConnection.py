@@ -13,8 +13,11 @@ class SheetsConnection:
         self.sheet = None
         self.link_status = False
         self.notice = ""
+        
         self.session_ID = None
         self.lobby_ID = None
+        self.page_ID = None
+        
         self.game_row = 1
         self.current_players = []
         self.player_ID = None
@@ -53,18 +56,17 @@ class SheetsConnection:
 
     def setSheetData(self, cell, data):
         request = self.sheet.values().update(spreadsheetId=self.session_ID,
-                                range="p1!"+str(cell), valueInputOption="USER_ENTERED",
+                                range=self.page_ID+"!"+str(cell), valueInputOption="USER_ENTERED",
                                 body={"values":data}).execute()
 
 
     def setClientID(self):
         self.client_ID = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
 
-
         
     def checkForLobby(self):
         try:
-            found_lobby = self.getSheetData("p1", "a"+str(self.game_row), "a1"+str(self.game_row))
+            found_lobby = self.getSheetData(self.page_ID, "a"+str(self.game_row), "a1"+str(self.game_row))
             print("looking for:", self.lobby_ID)
             print("found:", found_lobby[0][0])
             return found_lobby[0][0] == self.lobby_ID
