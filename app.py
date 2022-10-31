@@ -136,28 +136,27 @@ class contractWhistClient:
         canvas, self.playerIcon = placeImage(self.icon_frame, CHAR_ICONS_DIR+"player_"+str(self.user_config.getUserIconID())+".png", WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
 
 
-    def checkOnlineLobby(self, notice, lobbyCode, username):
-        session_ID, lobby_ID = self.getSessionIDLobbyID(lobbyCode)
+    def checkOnlineLobby(self, lobbyCode, username):
 
+        session_ID, lobby_ID, page_ID = self.getSessionIDLobbyID(lobbyCode)
         self.online_connect.initialiseConnection()
         self.online_connect.setPlayerName(username)
-
+        self.online_connect.setPlayerIcon("player_"+str(self.user_config.getUserIconID())+".png")
+        
         if self.online_connect.link_status:
-            if self.validateLobbyCode(session_ID, lobby_ID):
-
+            if self.validateLobbyCode(session_ID, lobby_ID, page_ID):
                 if self.online_connect.joinLobby():
-                    notice["text"] = self.online_connect.notice
+                    self.notice["text"] = self.online_connect.notice
                     #create loading page
                     #~destroy lobby page
                     #create online lobby page
+                    self.makeLobbyPage()
                 else:
-                    notice["text"] = self.online_connect.notice
-                    #lobby is full
-                
+                    self.notice["text"] = self.online_connect.notice
             else:
-                notice["text"] = L01
+                self.notice["text"] = L01
         else:
-            notice["text"] = self.online_connect.notice
+            self.notice["text"] = self.online_connect.notice
         
 
     @staticmethod
