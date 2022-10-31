@@ -106,7 +106,7 @@ class contractWhistClient:
         canvasBG, self.photoimageBG = placeImage(lobby_frame, TEXTURES_DIR+"background2.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
 
         makeLabel(lobby_frame, "Online Multiplayer", "black", COLOUR_BUTTON, 0.5, 0.1, "center", 20)
-        canvas, photoimage = self.showPlayerIcon(lobby_frame)
+        self.showPlayerIcon(lobby_frame)
         makeButton(lobby_frame, "Change Icon", 10, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.48, "center", lambda: self.showPlayerIcon(lobby_frame),9)
         
         makeLabel(lobby_frame, "Username:", "black", COLOUR_BUTTON, 0.5, 0.55, "e", 12)
@@ -130,8 +130,7 @@ class contractWhistClient:
             self.icon_frame.destroy()
         except: pass
         self.icon_frame = makeFrame(lobby_frame, COLOUR_PRIME, 0.15, 0.28, 0.5, 0.30, "center")
-        canvas, photoimage = placeImage(self.icon_frame, CHAR_ICONS_DIR+"player_"+str(self.user_config.getUserIconID())+".png", WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
-        return canvas, photoimage   
+        canvas, self.playerIcon = placeImage(self.icon_frame, CHAR_ICONS_DIR+"player_"+str(self.user_config.getUserIconID())+".png", WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
 
 
     def checkOnlineLobby(self, notice, lobbyCode, username):
@@ -199,6 +198,12 @@ class contractWhistClient:
         tk.mainloop()
 
 
+    def showBotIcon(self, config_frame, bot_count):
+        self.bot_frame.destroy()
+        self.bot_frame = makeFrame(config_frame, COLOUR_PRIME, 0.15, 0.24, 0.5, 0.26, "center")
+        canvas, self.bot_Icon = placeImage(self.bot_frame, "res/textures/bot_"+bot_count+".png", WINDOW_SIZES[self.windowSize][0]//7, WINDOW_SIZES[self.windowSize][1]//4, 0.5, 0.5, "center")
+
+    
     @staticmethod
     def showPlaystyleDesc(playstyle_desc, selection):
         playstyle_desc["text"] = PLAYSTYLE_DESC[selection]
