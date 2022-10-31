@@ -30,6 +30,7 @@ class contractWhistClient:
         self.windowSize = list(WINDOW_SIZES.keys())[0]
         self._resize(self.window, self.windowSize)
 
+        self.lobby_active = False
         self.online_connect = SheetsConnection()
         self.colour_schemes = self._getColourSchemes()
         self.user_config = UserConfig()
@@ -116,12 +117,14 @@ class contractWhistClient:
         username_entry.insert(0, self.user_config.getUsername())
         makeLabel(lobby_frame, "Lobby Code:", "black", COLOUR_BUTTON, 0.5, 0.6, "e", 12)
         lobby_entry = makeEntry(lobby_frame, 18, COLOUR_BUTTON, COLOUR_TEXT_D, "", 0.5, 0.6, "w")
+        lobby_entry.config(show="•")
 
-        notice = makeLabel(lobby_frame, "", "black", COLOUR_ERROR, 0.5, 0.8, "center", 12)
+
+        self.notice = makeLabel(lobby_frame, "", "black", COLOUR_ERROR, 0.5, 0.9, "center", 12)
         makeButton(lobby_frame, "Back", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.49, 0.7, "ne", lambda: lobby_frame.destroy(), 10)
-        makeButton(lobby_frame, "Join", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.51, 0.7, "nw", lambda: self.checkOnlineLobby(notice, lobby_entry.get(), username_entry.get()), 10)
-        photoimage.image = photoimage
-        photoimageBG.image = photoimageBG
+        makeButton(lobby_frame, "Join", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.51, 0.7, "nw", lambda: self.checkOnlineLobby(lobby_entry.get(), username_entry.get()), 10)
+
+
 
 
     def showPlayerIcon(self, lobby_frame):
