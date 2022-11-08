@@ -10,6 +10,7 @@ WINDOW_SIZES = {"900x506" : [900, 506],
 CARD_PACKS_DIR = "res/card_packs/"
 TEXTURES_DIR = "res/textures/"
 CHAR_ICONS_DIR = "res/characters/"
+EMPTY_ICON_DIR = "res/textures/empty.png"
 
 
 #COLOURS
@@ -37,7 +38,7 @@ BOT_NAMES = ["Leon", "Napoleon", "Jesse", "Dodo", "Brim", "Banshee",
              "Nova", "Voyager", "Zoe", "Arya", "Lab Rat"]
 
 PLAYSTYLE_DESC = {"Potoo" : "Plays the game legitimately\n but doesnt know how to play.",
-                  "Falcon" : "Plays aggressively to win as\n many rounds as it can regardless of predicts.",
+                  "Falcon" : "Plays aggressively to win\n as many rounds as it can \nregardless of predicts.",
                   "Raven" : "Plays tactically based on past\n events and its current situation.",
                   "Random" : "Random playstyle will be selected."}
 
@@ -53,6 +54,8 @@ ROUND_SIZE = [1,2,3,4,5,6,7,8,9,10]
 L00 = "Joined lobby."
 L01 = "Lobby code is invalid."
 L02 = "Lobby is full."
+L03 = "Lobby connection lost."
+L04 = "Disconnected from lobby."
 C00 = "Connection successful."
 C01 = "Cannot find credentials."
 C02 = "Invalid credentials."
