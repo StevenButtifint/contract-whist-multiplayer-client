@@ -146,6 +146,27 @@ class contractWhistClient:
         
         makeButton(self.lobby_frame, "Leave", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.3, 0.9, "center", lambda: self.leaveLobby(), 11)
 
+        # host is given to player in slot one
+        if self.online_connect.player_host:
+            self.host_frame_edge = makeFrame(self.lobby_frame, COLOUR_WIDGET_D, 0.36, 0.22, 0.5, 0.73, "center")
+            self.host_frame = makeFrame(self.lobby_frame, COLOUR_PRIME, 0.35, 0.21, 0.5, 0.73, "center")
+            makeLabel(self.host_frame, "Host Options:", COLOUR_PRIME, COLOUR_WIDGET_L, 0.5, 0, "n", 16)
+            makeLabel(self.host_frame, "Starting Round Size:", COLOUR_PRIME, COLOUR_WIDGET_L, 0.5, 0.4, "ne", 12)
+            self.roundSizeString = makeStringVar(self.host_frame, str(ROUND_SIZE[-1]))
+            self.roundSizeOption = makeOptionMenu(self.host_frame, self.roundSizeString, ROUND_SIZE, 4, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.4, "nw", lambda x=None: self.setRoundSize())
+            makeLabel(self.host_frame, "Cheats:", COLOUR_PRIME, COLOUR_WIDGET_L, 0.5, 0.64, "ne", 12)
+            self.cheatsString = makeStringVar(self.host_frame, "No")
+            self.roundSizeOption = makeOptionMenu(self.host_frame, self.cheatsString, ["Yes","No"], 4, COLOUR_BUTTON, COLOUR_TEXT_D, 0.5, 0.64, "nw", None)
+
+            makeButton(self.lobby_frame, "Start", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.7, 0.9, "center", lambda: lobby_frame.destroy(), 12)
+        else:
+            self.host_label = makeLabel(self.lobby_frame, "Waiting for host...", COLOUR_PRIME, COLOUR_WIDGET_D, 0.5, 0.7, "center", 12)
+            
+        self.lobby_active = True
+        self.the_queue = queue.Queue()
+        self.threadTest()
+
+        
 
 
     def showPlayerIcon(self, lobby_frame):
