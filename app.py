@@ -125,6 +125,27 @@ class contractWhistClient:
         makeButton(lobby_frame, "Join", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.51, 0.7, "nw", lambda: self.checkOnlineLobby(lobby_entry.get(), username_entry.get()), 10)
 
 
+    def makeLobbyPage(self):
+        self.lobby_frame = makeFrame(self.window, COLOUR_PRIME, 1, 1, 0, 0, "nw")
+        canvasBG, self.lobbyBG = placeImage(self.lobby_frame, TEXTURES_DIR+"background2.png", WINDOW_SIZES[self.windowSize][0], WINDOW_SIZES[self.windowSize][1], 0, 0, "nw")
+
+        self.slot_one_frame = makeFrame(self.lobby_frame, COLOUR_WIDGET_D, 0.16, 0.25, 0.2, 0.40, "center")
+        self.slot_two_frame = makeFrame(self.lobby_frame, COLOUR_WIDGET_D, 0.16, 0.25, 0.4, 0.40, "center")
+        self.slot_three_frame = makeFrame(self.lobby_frame, COLOUR_WIDGET_D, 0.16, 0.25, 0.6, 0.40, "center")
+        self.slot_four_frame = makeFrame(self.lobby_frame, COLOUR_WIDGET_D, 0.16, 0.25, 0.8, 0.40, "center")
+
+        canvas, self.playerOneImage = placeImage(self.slot_one_frame, EMPTY_ICON_DIR, WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
+        canvas, self.playerTwoImage = placeImage(self.slot_two_frame, EMPTY_ICON_DIR, WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
+        canvas, self.playerThreeImage = placeImage(self.slot_three_frame, EMPTY_ICON_DIR, WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
+        canvas, self.playerFourImage = placeImage(self.slot_four_frame, EMPTY_ICON_DIR, WINDOW_SIZES[self.windowSize][0]//5, WINDOW_SIZES[self.windowSize][1]//3, 0.5, 0.5, "center")
+
+        self.slot_one_label = makeLabel(self.lobby_frame, "Empty", COLOUR_PRIME, COLOUR_WIDGET_D, 0.2, 0.56, "center", 12)
+        self.slot_two_label = makeLabel(self.lobby_frame, "Empty", COLOUR_PRIME, COLOUR_WIDGET_D, 0.4, 0.56, "center", 12)
+        self.slot_three_label = makeLabel(self.lobby_frame, "Empty", COLOUR_PRIME, COLOUR_WIDGET_D, 0.6, 0.56, "center", 12)
+        self.slot_four_label = makeLabel(self.lobby_frame, "Empty", COLOUR_PRIME, COLOUR_WIDGET_D, 0.8, 0.56, "center", 12)
+        
+        makeButton(self.lobby_frame, "Leave", 8, COLOUR_BUTTON, COLOUR_TEXT_D, 0.3, 0.9, "center", lambda: self.leaveLobby(), 11)
+
 
 
     def showPlayerIcon(self, lobby_frame):
